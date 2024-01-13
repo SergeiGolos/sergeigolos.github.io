@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "resume-cli": "^3.0.8"
+    "jsonresume-theme-md": "^1.1.1",
+    "resumed": "^3.0.1"
   }
 }
