@@ -1,0 +1,15 @@
+name: Readme Template
+on:
+  push:
+    branches: [ main ]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Update NPM dependencies      
+      run: "npm install"
+    - name: Generate README.md
+      run: npm run build    
