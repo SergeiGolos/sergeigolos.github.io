@@ -1,4 +1,4 @@
-import { useSignal, $ } from "@builder.io/qwik"
+import { $ } from "@builder.io/qwik"
 
 function ThemeIcon(props: any) {
   return (
