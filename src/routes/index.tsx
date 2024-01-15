@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Intro, IntroFooter } from "~/components/Intro";
 import Page  from "~/components/Page";
+import Present from "~/components/Present";
 import { ThemeToggle } from "~/components/ThemeToggle";
 // import { ThemeToggle } from "~/components/ThemeToggle";
 import { resume } from "~/components/resume";
@@ -92,7 +93,8 @@ export default component$(() => {
       <ThemeToggle />
       <div class="relative flex-auto">
         <Timeline />
-        <main class="space-y-20 py-20 sm:space-y-32 sm:py-32">
+        <main class="space-y-2 py-20 sm:space-y-2 sm:py-8">
+          <Present />
           {resume.work.map((job, index) => <Page {...job} key={index} />)}          
         </main>
       </div>    
