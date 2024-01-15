@@ -10,8 +10,7 @@ export default component$(() => {
         So <span class="highlight">fantastic</span>
         <br />
         to have <span class="highlight">you</span> here
-      </h1>
-      <p>Have fun building your App with Qwik.</p>
+      </h1>      
       <div class={styles["button-group"]}>
         <button
           onClick$={async () => {
@@ -68,14 +67,7 @@ export default component$(() => {
           }}
         >
           Time to celebrate
-        </button>
-        <a
-          href="https://qwik.builder.io/docs"
-          target="_blank"
-          class="button button-dark"
-        >
-          Explore the docs
-        </a>
+        </button>       
       </div>
     </div>
   );
