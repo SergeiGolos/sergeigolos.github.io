@@ -4,6 +4,7 @@ import { Intro, IntroFooter } from "~/components/Intro";
 import Page  from "~/components/Page";
 import { ThemeToggle } from "~/components/ThemeToggle";
 // import { ThemeToggle } from "~/components/ThemeToggle";
+import { resume } from "~/components/resume";
 
 export function Glow() {
   const id = "testUd";
@@ -68,7 +69,8 @@ export function Timeline() {
   )
 }
 
-export default component$(() => {
+
+export default component$(() => {  
   return (
     <>    
       <div class="relative flex-none overflow-hidden px-6 lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex lg:px-0">
@@ -91,7 +93,7 @@ export default component$(() => {
       <div class="relative flex-auto">
         <Timeline />
         <main class="space-y-20 py-20 sm:space-y-32 sm:py-32">
-          <Page />
+          {resume.work.map((job, index) => <Page {...job} key={index} />)}          
         </main>
       </div>    
     </>

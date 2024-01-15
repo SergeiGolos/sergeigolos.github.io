@@ -1,4 +1,4 @@
-{  
+const resume = {  
   "basics": {
     "id":"sergei-golos",
     "name": "Sergei Golos",
@@ -260,3 +260,5 @@
   ],
   "references": []
 }
+
+export { resume }
