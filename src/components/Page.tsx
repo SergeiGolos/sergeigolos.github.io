@@ -37,7 +37,7 @@ export default component$(() => {
               class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10 dark:ring-white/10">
             </div>
           </div>
-          <h2><a href="#commit-message-suggestions">Comming Soon</a></h2>
+          <h2><a href="/commit-message-suggestions">Comming Soon</a></h2>
           {/* <p>In the latest release, I've added support for commit message and description suggestions via an integration
             with OpenAI. Commit looks at all of your changes, and feeds that into the machine with a bit of
             prompt-tuning to get back a commit message that does a surprisingly good job at describing the intent of

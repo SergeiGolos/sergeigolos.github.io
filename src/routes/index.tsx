@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Intro, IntroFooter } from "~/components/Intro";
 import Page  from "~/components/Page";
+import { ThemeToggle } from "~/components/ThemeToggle";
 // import { ThemeToggle } from "~/components/ThemeToggle";
 
 export function Glow() {
@@ -86,7 +87,7 @@ export default component$(() => {
           </div>
         </div>
       </div>
-      {/* <ThemeToggle /> */}
+      <ThemeToggle />
       <div class="relative flex-auto">
         <Timeline />
         <main class="space-y-20 py-20 sm:space-y-32 sm:py-32">
