@@ -30,20 +30,26 @@ jobs:
       
       - name: Generate Static Site
         run: npm run build    
-      
-      - name: Zip Distribution
-        run: zip -qq -r pages.zip dist        
-      
-      #- name: Fix permissions
-      #  run: |
-      #      chmod -c -R +rX "_site/" | while read line; do
-      #          echo "::warning title=Invalid file permissions automatically fixed::$line"
-      #      done      
-      - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v2
+            
+      - uses: actions/upload-artifact@master
         with:
-          path: pages.zip          
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4 
+          name: page
+          path: dist          
+        
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+        name: github-pages
+        url: ${{steps.deployment.outputs.page_url}}
+    steps:
+        - uses: actions/download-artifact@master
+          with:
+            name: page
+            path: .
+        - uses: actions/configure-pages@v1
+        - uses: actions/upload-pages-artifact@v1
+          with:
+            path: .
+        - id: deployment
+          uses: actions/deploy-pages@main      
