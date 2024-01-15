@@ -1,6 +1,7 @@
-import { Slot, component$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { Intro } from "~/components/Intro";
+import { Intro, IntroFooter } from "~/components/Intro";
+import Page  from "~/components/Page";
 // import { ThemeToggle } from "~/components/ThemeToggle";
 
 export function Glow() {
@@ -71,17 +72,16 @@ export default component$(() => {
     <>    
       <div class="relative flex-none overflow-hidden px-6 lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex lg:px-0">
         <Glow /> 
-        <div class="relative flex w-full lg:pointer-events-auto lg:mr-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] lg:overflow-y-auto lg:overflow-x-hidden lg:pl-[max(4rem,calc(50%-38rem))]">
-          <div class="mx-auto max-w-lg lg:mx-0 lg:flex lg:w-96 lg:max-w-none lg:flex-col lg:before:flex-1 lg:before:pt-6">
+        <div class="relative flex w-full lg:pointer-events-auto lg:mr-[calc(max(2rem,30%-38rem)+40rem)] lg:min-w-[32rem] lg:overflow-y-auto lg:overflow-x-hidden lg:pl-[max(4rem,calc(30%-38rem))]">
+          <div class="mx-auto max-w-lg lg:mx-64 lg:flex lg:w-96 lg:max-w-none lg:flex-col lg:before:flex-1 lg:before:pt-6">
             <div class="pb-16 pt-20 sm:pb-20 sm:pt-32 lg:py-20">
               <div class="relative">
-                {/* <StarField class="-right-44 top-14" />
-                {main} */}
+                {/* <StarField class="-right-44 top-14" /> */}
                 <Intro/>
               </div>
             </div>
             <div class="flex flex-1 items-end justify-center pb-4 lg:justify-start lg:pb-6">
-              {/* {footer} */} footer
+              <IntroFooter />
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default component$(() => {
       <div class="relative flex-auto">
         <Timeline />
         <main class="space-y-20 py-20 sm:space-y-32 sm:py-32">
-          <Slot />
+          <Page />
         </main>
       </div>    
     </>
