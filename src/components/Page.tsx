@@ -45,7 +45,7 @@ export default component$((props: TimeLineEntryProperties) => {
             </div>
           </div>
         </div>
-        <header class="relative mb-2 xl:mb-0">
+        <header class="relative mt-2 sm:mt-8 xl:mb-0">
           <div
             class="pointer-events-none absolute left-[max(-0.5rem,calc(50%-18.625rem))] top-0 z-50 flex h-4 items-center justify-end gap-x-2 lg:left-0 lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] xl:h-8">
             <a class="inline-flex" href="#commit-message-suggestions">
