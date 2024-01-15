@@ -32,17 +32,17 @@ jobs:
         run: npm run build    
       
       - name: Zip Distribution
-        run: zip -qq -r _site/pages.zip dist        
+        run: zip -qq -r pages.zip dist        
       
-      - name: Fix permissions
-        run: |
-            chmod -c -R +rX "_site/" | while read line; do
-                echo "::warning title=Invalid file permissions automatically fixed::$line"
-            done      
+      #- name: Fix permissions
+      #  run: |
+      #      chmod -c -R +rX "_site/" | while read line; do
+      #          echo "::warning title=Invalid file permissions automatically fixed::$line"
+      #      done      
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: _site/pages.zip          
+          path: pages.zip          
 
       - name: Deploy to GitHub Pages
         id: deployment
