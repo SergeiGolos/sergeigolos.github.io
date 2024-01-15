@@ -1,15 +1,51 @@
-name: Readme Template
+# This is a basic workflow to help you get started with Actions
+name: CI
+
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ main ]
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  publish:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - name: Update NPM dependencies      
-      run: "npm install"
-    - name: Generate README.md
-      run: npm run build    
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: NPM Dependencies      
+        run: "npm install"
+      
+      - name: Generate Static Site
+        run: npm run build    
+      
+      - name: Zip Distribution
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r dist.zip dist      
+      
+      - name: Fix permissions
+        run: |
+            chmod -c -R +rX "_site/" | while read line; do
+                echo "::warning title=Invalid file permissions automatically fixed::$line"
+            done      
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: dist.zip          
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 
