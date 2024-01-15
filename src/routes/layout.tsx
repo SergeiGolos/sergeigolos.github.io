@@ -2,8 +2,6 @@ import { component$, Slot, useStyles$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import type { RequestHandler } from "@builder.io/qwik-city";
 
-import Header from "../components/starter/header/header";
-
 import styles from "./styles.css?inline";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
@@ -27,8 +25,7 @@ export default component$(() => {
   useStyles$(styles);
   return (
     <>
-      <Header />
-      <main>
+      <main class="flex min-h-full flex-col bg-white dark:bg-gray-950">
         <Slot />
       </main>      
     </>
