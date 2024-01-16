@@ -13,16 +13,7 @@ export function Intro() {
         Sergei Golos{' '}<span class="text-sky-300">software enthusiast</span> and <span class="text-sky-300">forever student</span>
       </h1>
       <div class="mt-8 flex justify-center sm:gap-x-2 lg:justify-start">      
-        <Link href="https://github.com/sergeigolos/">
-          <span class="flex gap-x-2">
-            <FaGithub/>
-            sergeigolos</span>
-        </Link>
-        <Link href="https://stackoverflow.com/users/190188/sergei-golos">
-          <span class="flex gap-x-2">
-            <FaStackOverflow />
-            sergeigolos</span>
-        </Link>              
+                      
       </div>
     </>
   )
@@ -30,11 +21,17 @@ export function Intro() {
 
 export function IntroFooter() {
   return (
-    <p class="flex items-baseline gap-x-2 text-[0.8125rem]/6 text-gray-500">
-      Brought to you by{' '}
+    <p class="flex items-center justify-center  gap-x-2 text-[0.8125rem]/6 text-gray-500">
       <Link href="https://github.com/sergeigolos/">
-        Sergei Golos
-      </Link>
+          <span class="flex gap-x-2">
+            <FaGithub font-size={24}/>
+            sergeigolos</span>
+        </Link>
+        <Link href="https://stackoverflow.com/users/190188/sergei-golos">
+          <span class="flex gap-x-2">
+            <FaStackOverflow font-size={24}/>
+            sergeigolos</span>
+        </Link>
     </p>
   )
 }

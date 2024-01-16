@@ -55,7 +55,7 @@ const resume = {
   "work": [
     {
       "company": "Travelers",
-      "position": "Sr. Software Engineer (Product Owner)",
+      "position": "Product Owner",
       "website": "https://www.travelers.com/",
       "startDate": "2023-08-15",
       "summary": "Between a rock and a hard place, running middle layer integration team that serves as an entry point for some 70+ integrations between a 3rd party provider and the Travelers services ecosystem.  At high level the team was responsible for the maintaince of the middle layer, this focud our efforts was on reliability and observability.",
@@ -67,7 +67,7 @@ const resume = {
     },
     {
       "company": "Travelers",
-      "position": "Sr. Software Engineer ",
+      "position": "Sr. Software Engineer",
       "website": "https://www.travelers.com/",
       "startDate": "2022-03-15",
       "summary": "Focus on code quality and developer experience, I got to dig deep into development patterns that created code smells and enable an increase in team feature delivery velocity.",
