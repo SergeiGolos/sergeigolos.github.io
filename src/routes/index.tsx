@@ -77,8 +77,8 @@ export default component$(() => {
       <div class="relative flex-none overflow-hidden px-6 lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex lg:px-0">
         <Glow /> 
         <div class="relative flex w-full lg:pointer-events-auto         
-        lg:mr-[calc(max(2rem,30%-38rem)+40rem)] lg:min-w-[32rem] lg:overflow-y-auto lg:overflow-x-hidden lg:pl-[max(4rem,calc(30%-38rem))]">
-          <div class="mx-auto max-w-lg md:mx-32 lg:mx-64 lg:flex lg:w-96 lg:max-w-none lg:flex-col lg:before:flex-1 lg:before:pt-6">
+        lg:mr-[calc(max(2rem,50%-38rem))] lg:min-w-[32rem] lg:overflow-y-auto lg:overflow-x-hidden lg:pl-2">
+          <div class="mx-auto max-w-lg md:mx-64 lg:mx-[calc(max(2rem,50%-32rem))] lg:flex lg:w-96 lg:max-w-none lg:flex-col lg:before:flex-1 lg:before:pt-6">
             <div class="pb-16 pt-20 sm:pb-20 sm:pt-32 lg:py-20">
               <div class="relative content-center">
                 {/* <StarField class="-right-44 top-14" /> */}
@@ -96,7 +96,11 @@ export default component$(() => {
         <Timeline />
         <main class="space-y-2 py-20 sm:space-y-2 sm:py-8">
           <Present />
-          {resume.work.map((job, index) => <Page {...job} key={index} />)}          
+          {resume.Timeline
+            .sort(function(a, b) {
+              return a.startDate > b.startDate ? -1 : 1;
+            })
+            .map((job, index) => <Page {...job} key={index} />)}          
         </main>
       </div>    
     </>

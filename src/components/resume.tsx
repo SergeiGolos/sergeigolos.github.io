@@ -22,41 +22,47 @@ const resume = {
         "url": "https://stackoverflow.com/users/190188/sergei-golos"
       }
     ]
-  },
-  "projects": [{
-    "name": "ZeUnit - Open Source Project (Founder)",
-    "description": "Testing framework designed to bridge the gap between traditional unit and system wide integration testing.  The design goals of ZeUnit are grounded in the realization of a sad truth, developers will be writing integration tests and not business people who focus the data. Facing this reality, begs the question, 'Why write the tests in a made up markup language when dotnet developers feel most comfortable using dotnet?'",
-    "highlights": [
-      "No markup language required to build tests, instead ZeUnit focuses on easily consuming outside data sources.",      
-      "Built on the principles of progressive enhancement allowing users to start with simple tests and scale the complexity for system wide integration.",
-      "Test functions return the results, not 'spooky action as a distance' to mutate execution state making asynchronous testing easy to support."
-    ],
-    "url": "https://github.com/bitcobblers/ZeUnit"
-  },
-  {
-    "name": "QuickDSL - Open Source Project (Founder)",
-    "description": "A prototype libary for quickly building functional DSL languages in XML. The goal is to quickly stand up behavior around existing XML data.",
-    "highlights": [
-      "Defind polymorphic serialization at the child definition instead of the parent, allowing the language to grow horizonatlly without breaking existing code."
-    ],
-    "url": "https://github.com/bitcobblers/QuickDSL"
-  },
-  {
-    "name": "Storyteller - Open Source Project (Pull Request)",
-    "description": "Storyteller is an integration testing framework with a GUI for test data entry and a nice HTML subsystem for generating detailed reports.  In my personal and professional work, I found that being able to quickly generate HTML reports on code execution enabled me to build integration tests that not only flag issues with the system but also greatly helped with debugging.  When I was confronted by the limitations of adding some filtering behavior into the generated reports, I decided to dig into the code to see how this can be addressed.  The following pull request is my resolution to this roadblock.",
-    "highlights": [              
-      "Replaced hard coded functions to render static css and js content with a composable document builder.",
-      "Exposed the newly created document builder to enable side-loading additional content into the generated HTML reports.",
-      "Default behavior of the existing system remained unchanged by the pull request, expanding functionality without breaking backwards compatibility.",
-      "All additional code written has 100% unit tests coverage."
-    ],    
-    "url": "https://github.com/storyteller/Storyteller/pull/789"    
-  }],
-  "work": [
+  },  
+  "Timeline": [
+    {
+      "company": "GitHub",
+      "name": "ZeUnit - Open Source Project (Founder)",
+      "startDate": "2021-01-07",
+      "summary": "Testing framework designed to bridge the gap between traditional unit and system wide integration testing.  The design goals of ZeUnit are grounded in the realization of a sad truth, developers will be writing integration tests and not business people who focus the data. Facing this reality, begs the question, 'Why write the tests in a made up markup language when dotnet developers feel most comfortable using dotnet?'",
+      "highlights": [
+        "No markup language required to build tests, instead ZeUnit focuses on easily consuming outside data sources.",      
+        "Built on the principles of progressive enhancement allowing users to start with simple tests and scale the complexity for system wide integration.",
+        "Test functions return the results, not 'spooky action as a distance' to mutate execution state making asynchronous testing easy to support."
+      ],
+      "url": "https://github.com/bitcobblers/ZeUnit"
+    },
+    {
+      "company": "GitHub",
+      "name": "QuickDSL - Open Source Project (Founder)",
+      "startDate": "2022-01-05",
+      "summary": "A prototype libary for quickly building functional DSL languages in XML. The goal is to quickly stand up behavior around existing XML data.",
+      "highlights": [
+        "Defind polymorphic serialization at the child definition instead of the parent, allowing the language to grow horizonatlly without breaking existing code."
+      ],
+      "url": "https://github.com/sergeigolos/QuickDSL"
+    },
+    {
+      "company": "Pet Project",
+      "name": "Storyteller - Open Source Project (Pull Request)",
+      "startDate": "2020-01-14",
+      "summary": "Storyteller is an integration testing framework with a GUI for test data entry and a nice HTML subsystem for generating detailed reports.  In my personal and professional work, I found that being able to quickly generate HTML reports on code execution enabled me to build integration tests that not only flag issues with the system but also greatly helped with debugging.  When I was confronted by the limitations of adding some filtering behavior into the generated reports, I decided to dig into the code to see how this can be addressed.  The following pull request is my resolution to this roadblock.",
+      "highlights": [              
+        "Replaced hard coded functions to render static css and js content with a composable document builder.",
+        "Exposed the newly created document builder to enable side-loading additional content into the generated HTML reports.",
+        "Default behavior of the existing system remained unchanged by the pull request, expanding functionality without breaking backwards compatibility.",
+        "All additional code written has 100% unit tests coverage."
+      ],    
+      "url": "https://github.com/storyteller/Storyteller/pull/789"    
+    },
     {
       "company": "Travelers",
-      "position": "Product Owner",
-      "website": "https://www.travelers.com/",
+      "name": "Product Owner",
+      "url": "https://www.travelers.com/",
       "startDate": "2023-08-15",
       "summary": "Between a rock and a hard place, running middle layer integration team that serves as an entry point for some 70+ integrations between a 3rd party provider and the Travelers services ecosystem.  At high level the team was responsible for the maintaince of the middle layer, this focud our efforts was on reliability and observability.",
       "highlights": [
@@ -67,8 +73,8 @@ const resume = {
     },
     {
       "company": "Travelers",
-      "position": "Sr. Software Engineer",
-      "website": "https://www.travelers.com/",
+      "name": "Sr. Software Engineer",
+      "url": "https://www.travelers.com/",
       "startDate": "2022-03-15",
       "summary": "Focus on code quality and developer experience, I got to dig deep into development patterns that created code smells and enable an increase in team feature delivery velocity.",
       "highlights": [
@@ -79,8 +85,8 @@ const resume = {
     },
     {
       "company": "Change Healthcare",
-      "position": "Sr. Software Engineer (Services Delivery)",
-      "website": "https://www.changehealthcare.com/",
+      "name": "Sr. Software Engineer (Services Delivery)",
+      "url": "https://www.changehealthcare.com/",
       "startDate": "2018-01-15",   
       "endDate": "2022-03-15",     
       "summary": "As a senior software engineer on the Services Delivery team, my responsibilities centered around the development of processes and tools to transition the team to a cloud and self-service model.",
@@ -95,8 +101,8 @@ const resume = {
     },
     {
       "company": "Change Healthcare",
-      "position": "Sr. Software Engineer (Product)",
-      "website": "https://www.changehealthcare.com/",
+      "name": "Sr. Software Engineer (Product)",
+      "url": "https://www.changehealthcare.com/",
       "startDate": "2017-01-15",  
       "endDate": "2018-01-15",    
       "summary": "As a software engineer on the product development team, my responsibilities include development of new workflows and features, bug fixes, and guiding the product team towards cleaner and simpler product delivery.",
@@ -109,8 +115,8 @@ const resume = {
     },
     {
       "company": "McKesson",
-      "position": "Sr. Software Engineer (Services Delivery)",
-      "website": "https://mckesson.com",
+      "name": "Sr. Software Engineer (Services Delivery)",
+      "url": "https://mckesson.com",
       "startDate": "2011-09-15",  
       "endDate": "2017-01-15",    
       "summary": "As a software engineer on a service delivery team, my responsibilities included implementation of special application requirements, packaging custom configuration, and general oversight of tech-related issues for each of our clients. As the senior engineer on the team, I was also responsible for setting the strategy for the team to solve less trivial problems.",
@@ -122,8 +128,8 @@ const resume = {
     },
     {
       "company": "Korchek Technologies",
-      "position": "Software Engineer",
-      "website": "http://korchek.com/",
+      "name": "Software Engineer",
+      "url": "http://korchek.com/",
       "startDate": "2007-05-01",
       "endDate": "2011-09-15",
       "summary": "Worked on a small development team as a .NET C# developer, but like most members of a small teams, wore many hats in the process.  Under the guidance of the Sr. Engineer, gained a finer appreciation for elegant and simple solution design.",
@@ -135,8 +141,8 @@ const resume = {
     },
     {
       "company": "Cosential",
-      "position": "Software Engineer",
-      "website": "https://www.cosential.com/",
+      "name": "Software Engineer",
+      "url": "https://www.cosential.com/",
       "startDate": "2006-04-01",
       "endDate": "2007-05-01",
       "summary": "As one of three developers in the company at the time, I had the opportunity to work and many differing capacities, which was a great learning experience for this early time in my career. Cosential was my first job on a strictly web based application and it was here where I was exposed to asynchronous javascript request.  Seeing the importance and impact of the technology, AJAX and front end engineering became a focus of personal growth.",
@@ -148,8 +154,8 @@ const resume = {
     },
     {
       "company": "Abbott Jewelry Systems",
-      "position": "Jr. Software Engineer",
-      "website": "http://theedgeforjewelers.com/",
+      "name": "Jr. Software Engineer",
+      "url": "http://theedgeforjewelers.com/",
       "startDate": "2004-10-01",
       "endDate": "2006-04-01",
       "summary": "Starting work while still taking classes at college, I was lucky to have played chess with the CTO at a local coffee shop.  After winning against Joe, he invited me for an interview at his company and took a risk on me after looking at some PHP scripts of questionable quality.  In the time I worked under Joe, his decades of experience and wisdom were a strong influence on my development as an engineer.",
