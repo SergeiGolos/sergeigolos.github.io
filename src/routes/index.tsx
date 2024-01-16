@@ -104,11 +104,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title: "Engineer, Developer, Leader",
   meta: [
     {
-      name: "description",
-      content: "Qwik site description",
+      name: "Resume: Sergei Golos",
+      content: "The digital resume of Sergei Golos",
     },
   ],
 };
