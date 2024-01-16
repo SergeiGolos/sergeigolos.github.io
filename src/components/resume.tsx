@@ -25,8 +25,8 @@ const resume = {
   },  
   "Timeline": [
     {
-      "company": "GitHub",
-      "name": "ZeUnit - Open Source Project (Founder)",
+      "company": "Open Source Project",
+      "name": "ZeUnit - (Founder)",
       "startDate": "2021-01-07",
       "summary": "Testing framework designed to bridge the gap between traditional unit and system wide integration testing.  The design goals of ZeUnit are grounded in the realization of a sad truth, developers will be writing integration tests and not business people who focus the data. Facing this reality, begs the question, 'Why write the tests in a made up markup language when dotnet developers feel most comfortable using dotnet?'",
       "highlights": [
@@ -37,8 +37,8 @@ const resume = {
       "url": "https://github.com/bitcobblers/ZeUnit"
     },
     {
-      "company": "GitHub",
-      "name": "QuickDSL - Open Source Project (Founder)",
+      "company": "Open Source Project",
+      "name": "QuickDSL - (Founder)",
       "startDate": "2022-01-05",
       "summary": "A prototype libary for quickly building functional DSL languages in XML. The goal is to quickly stand up behavior around existing XML data.",
       "highlights": [
@@ -47,8 +47,8 @@ const resume = {
       "url": "https://github.com/sergeigolos/QuickDSL"
     },
     {
-      "company": "Pet Project",
-      "name": "Storyteller - Open Source Project (Pull Request)",
+      "company": "Open Source Project",
+      "name": "Storyteller - (Pull Request)",
       "startDate": "2020-01-14",
       "summary": "Storyteller is an integration testing framework with a GUI for test data entry and a nice HTML subsystem for generating detailed reports.  In my personal and professional work, I found that being able to quickly generate HTML reports on code execution enabled me to build integration tests that not only flag issues with the system but also greatly helped with debugging.  When I was confronted by the limitations of adding some filtering behavior into the generated reports, I decided to dig into the code to see how this can be addressed.  The following pull request is my resolution to this roadblock.",
       "highlights": [              
