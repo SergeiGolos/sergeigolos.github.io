@@ -74,7 +74,7 @@ export function Timeline() {
 export default component$(() => {  
   return (
     <>    
-      <div class="relative flex-none overflow-hidden px-6 lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex lg:px-0">
+      <div class="relative flex-none overflow-hidden px-6 lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex lg:px-0 bg-gray-900 lg:bg-transparent" >
         <Glow /> 
         <div class="relative flex w-full lg:pointer-events-auto         
         lg:mr-[calc(max(2rem,50%-38rem))] lg:min-w-[32rem] lg:overflow-y-auto lg:overflow-x-hidden lg:pl-2">
