@@ -22,7 +22,7 @@ export default component$((props: TimeLineEntryProperties) => {
                   class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10 dark:ring-white/10">
                 </div>
               </div>
-              <h3 class="text-blue-400 dark:text-white/50 text-xl">
+              <h3 class="text-blue-400 text-xl">
                 {props.name} @ <Link href={props.url}>{props.company}</Link>
               </h3>              
               <p>{props.summary}</p>
