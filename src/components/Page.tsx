@@ -14,7 +14,7 @@ export default component$((props: TimeLineEntryProperties) => {
   return (
     <article id="commit-message-suggestions" class="">
       <div>    
-        <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8 text-gray-400" >
+        <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8 text-gray-500" >
           <div class="lg:ml-96 lg:flex lg:w-full lg:justify-end lg:pl-32">
             <div class="mx-auto max-w-lg lg:mx-0 lg:w-0 lg:max-w-xl lg:flex-auto leading-8" data-mdx-content="true">
               <div class="relative mt-8 overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-900 [&amp;+*]:mt-8">               
@@ -34,7 +34,7 @@ export default component$((props: TimeLineEntryProperties) => {
                 d="M12.717 2.432c.1.42.43.75.85.852C15.026 3.633 16 4.27 16 5s-.975 1.367-2.432 1.716c-.42.101-.75.432-.851.852C12.367 9.025 11.729 10 11 10c-.729 0-1.367-.975-1.716-2.432-.101-.42-.431-.75-.851-.852C6.975 6.367 6 5.73 6 5c0-.73.975-1.367 2.433-1.717.42-.1.75-.43.85-.85C9.634.974 10.272 0 11 0c.73 0 1.367.975 1.717 2.432Z">
               </path>
             </svg> Improvements</h3> */}
-              <h4 class="mt-5 font-bold">Highlights</h4>
+              {/* <h4 class="mt-5 font-bold">Highlights</h4> */}
               <ul class="list-disc">
                 {props.highlights.map((item, index) => (<li key={index}>{item}</li>))}
               </ul>
