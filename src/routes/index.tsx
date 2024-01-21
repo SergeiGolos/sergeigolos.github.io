@@ -85,7 +85,7 @@ export default component$(() => {
                 <Intro/>
               </div>
             </div>
-            <div class="flex flex-1 items-end justify-center pb-4 lg:justify-start lg:pb-6">
+            <div class="flex flex-1 items-end justify-center pb-4 lg:justify-center lg:pb-6">
               <IntroFooter />
             </div>
           </div>
