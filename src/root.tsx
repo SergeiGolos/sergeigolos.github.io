@@ -38,11 +38,6 @@ export default component$(() => {
             setTheme('light');
           }
         })();
-        window.addEventListener('load', function() {
-          var themeSwitch = document.getElementById('hide-checkbox');
-          themeSwitch.checked = localStorage.getItem('theme') === 'light'? true: false;
-        }
-        );
       `}
         ></script>
       </head>

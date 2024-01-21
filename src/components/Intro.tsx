@@ -1,4 +1,4 @@
-import { FaGithub, FaStackOverflow, FaLinkedin } from "@qwikest/icons/font-awesome"
+import { FaGithub, FaStackOverflow, FaLinkedin , FaBlogSolid} from "@qwikest/icons/font-awesome"
 import { Link } from "@builder.io/qwik-city"
 export function Intro() {
   return (
@@ -35,6 +35,11 @@ export function IntroFooter() {
         <Link href="https://www.linkedin.com/in/sergei-golos-11172164/">
           <span class="flex gap-x-2">
             <FaLinkedin font-size={24}/>
+          <s></s></span>
+        </Link>
+        <Link href="https://bitcobblers.com/">
+          <span class="flex gap-x-2">
+            <FaBlogSolid font-size={24}/>
           <s></s></span>
         </Link>
     </p>
