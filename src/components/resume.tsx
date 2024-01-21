@@ -91,7 +91,7 @@ const resume = {
     {
       "company": "Change Healthcare",
       "name": "Sr. Software Engineer (Services Delivery)",
-      "url": "https://www.changehealthcare.com/",
+      "url": "https://www.lyric.ai/",
       "type": "Work",
       "startDate": "2018-01-15",   
       "endDate": "2022-03-15",     
@@ -108,7 +108,7 @@ const resume = {
     {
       "company": "Change Healthcare",
       "name": "Sr. Software Engineer (Product)",
-      "url": "https://www.changehealthcare.com/",
+      "url": "https://www.lyric.ai/",
       "type": "Work",
       "startDate": "2017-01-15",  
       "endDate": "2018-01-15",    
