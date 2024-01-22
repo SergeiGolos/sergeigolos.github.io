@@ -22,7 +22,7 @@ export default component$((props: TimeLineEntryProperties) => {
   return (
     <article id="commit-message-suggestions" class="">
       <div>    
-        <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8 text-gray-500" >
+        <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8 text-gray-500 dark:text-white-500" >
           <div class="lg:ml-96 lg:flex lg:w-full lg:justify-end lg:pl-32">
             <div class="pointer-events-auto mx-auto max-w-lg lg:mx-0 lg:w-0 lg:max-w-xl lg:flex-auto leading-8" data-mdx-content="true">
               <div class="relative mt-8 overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-900 [&amp;+*]:mt-8">               
