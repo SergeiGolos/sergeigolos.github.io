@@ -21,7 +21,7 @@ export function Intro() {
 
 export function IntroFooter() {
   return (
-    <p class="flex items-center gap-x-2 text-[0.8125rem]/6 text-gray-500">
+    <p class="flex items-center gap-x-2 text-[0.8125rem]/6 text-gray-500 pointer-events-auto">
       <Link href="https://bitcobblers.com/">
         <span class="flex gap-x-2">
           <FaBlogSolid font-size={24} />

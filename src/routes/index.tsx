@@ -92,7 +92,7 @@ export default component$(() => {
         </div>
       </div>
       <ThemeToggle />
-      <div class="relative flex-auto">
+      <div class="relative flex-auto pointer-events-none">
         <Timeline />
         <main class="space-y-2 py-20 sm:space-y-2 sm:py-8">
           <Present />
