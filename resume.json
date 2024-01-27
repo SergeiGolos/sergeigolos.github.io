@@ -1,6 +1,5 @@
 {  
   "basics": {
-    "id":"sergei-golos",
     "name": "Sergei Golos",
     "image" : "",
     "label": "Sr. Software Engineer",    
@@ -13,14 +12,25 @@
     },
     "profiles": [
       {
+        "network": "Blog",
+        "username": "sergei-golos",
+        "url": "https://bitcobblers.com/"
+      },
+      
+      {
         "network": "GitHub",
-        "username": "https://github.com/SergeiGolos",
-        "url": "https://github.com/SergeiGolos"
+        "username": "sergeigolos",
+        "url": "https://github.com/sergeigolos/"
       },
       {
         "network": "Stack Overflow",
         "username": "sergei-golos",
         "url": "https://stackoverflow.com/users/190188/sergei-golos"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "sergei-golos",
+        "url": "https://www.linkedin.com/in/sergei-golos-11172164/"
       }
     ]
   },

@@ -47,4 +47,4 @@ const timeline : TimeLineEntryProperties[] = []
     ...education } as TimeLineEntryProperties}));    
 
 
-export { timeline, details }
+export { resume, timeline, details }
