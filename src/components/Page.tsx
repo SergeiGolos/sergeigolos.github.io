@@ -1,15 +1,6 @@
 import { component$ } from "@builder.io/qwik"
 import { Link } from "@builder.io/qwik-city"
-export interface TimeLineEntryProperties {
-  summary: string
-  name: string,
-  startDate: string
-  highlights: string[],
-  company: string,
-  url?: string,
-  copmanyLogo?: string,
-}
-
+import type { TimeLineEntryProperties } from "./TimeLineEntryProperties"
 export default component$((props: TimeLineEntryProperties) => {
   const date = new Date(props.startDate);
   const formatter = new Intl.DateTimeFormat('en-US', {
@@ -30,8 +21,10 @@ export default component$((props: TimeLineEntryProperties) => {
                   class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10 dark:ring-white/10">
                 </div>
               </div>
-              <h3 class="text-blue-400 text-xl">
-                {props.name} @ <Link href={props.url}>{props.company}</Link>
+              <h3 class="text-blue-400 text-xl flex  gap-1 lg:gap-1e">
+                <span>{props.name}</span>
+                <span>@</span>
+                <Link target="blank" href={props.url}>{props.company}</Link>
               </h3>              
               <p>{props.summary}</p>
               <ul class="list-disc">

@@ -1,281 +1,50 @@
-const resume = {  
-  "basics": {
-    "id":"sergei-golos",
-    "name": "Sergei Golos",
-    "label": "Sr. Software Engineer",    
-    "email": "sergei.golos@gmail.com",      
-    "summary": "Over the 18 years of my software development career, I have worn many hats. I have worked with \"front-end\" javascript, created \"back-end\" services, developed mobile applications, deployed and organized Continuous Integration systems, drilled deep down into Windows Installer to improve product delivery and deployment, and created architectural strategy for internal tools. The wide range of software practices under my belt have helped me identify cross-disciplinary patterns, and in turn, given me a broader understanding of the software development process on my path to being a well rounded engineer.",
-    "location": {      
-      "postalCode": "06525",
-      "city": "Woodbridge",
-      "countryCode": "US"      
-    },
-    "profiles": [
-      {
-        "network": "GitHub",
-        "username": "https://github.com/SergeiGolos",
-        "url": "https://github.com/SergeiGolos"
-      },
-      {
-        "network": "Stack Overflow",
-        "username": "sergei-golos",
-        "url": "https://stackoverflow.com/users/190188/sergei-golos"
-      }
-    ]
-  },  
-  "Timeline": [
-    {
-      "company": "GitHub",
-      "name": "Open Source: Founder ZeUnit",
-      "startDate": "2021-01-07",
-      "type": "Project",
-      "summary": "Testing framework designed to bridge the gap between traditional unit and system wide integration testing.  The design goals of ZeUnit are grounded in the realization of a sad truth, developers will be writing integration tests and not business people who focus the data. Facing this reality, begs the question, 'Why write the tests in a made up markup language when dotnet developers feel most comfortable using dotnet?'",
-      "highlights": [
-        "No markup language required to build tests, instead ZeUnit focuses on easily consuming outside data sources.",      
-        "Built on the principles of progressive enhancement allowing users to start with simple tests and scale the complexity for system wide integration.",
-        "Test functions return the results, not 'spooky action as a distance' to mutate execution state making asynchronous testing easy to support."
-      ],
-      "url": "https://github.com/bitcobblers/ZeUnit"
-    },
-    {
-      "company": "GitHub",
-      "name": "Open Source: Founder QuickDsl",
-      "type": "Project",
-      "startDate": "2022-01-05",
-      "summary": "A prototype libary for quickly building functional DSL languages in XML. The goal is to quickly stand up behavior around existing XML data.",
-      "highlights": [
-        "Defind polymorphic serialization at the child definition instead of the parent, allowing the language to grow horizonatlly without breaking existing code."
-      ],
-      "url": "https://github.com/sergeigolos/QuickDSL"
-    },
-    {
-      "company": "GitHub",
-      "name": "Open Source: Pull Request #789 Storyteller",
-      "type": "Project",
-      "startDate": "2020-01-14",
-      "summary": "Storyteller is an integration testing framework with a GUI for test data entry and a nice HTML subsystem for generating detailed reports.  In my personal and professional work, I found that being able to quickly generate HTML reports on code execution enabled me to build integration tests that not only flag issues with the system but also greatly helped with debugging.  When I was confronted by the limitations of adding some filtering behavior into the generated reports, I decided to dig into the code to see how this can be addressed.  The following pull request is my resolution to this roadblock.",
-      "highlights": [              
-        "Replaced hard coded functions to render static css and js content with a composable document builder.",
-        "Exposed the newly created document builder to enable side-loading additional content into the generated HTML reports.",
-        "Default behavior of the existing system remained unchanged by the pull request, expanding functionality without breaking backwards compatibility.",
-        "All additional code written has 100% unit tests coverage."
-      ],    
-      "url": "https://github.com/storyteller/Storyteller/pull/789"    
-    },
-    {
-      "company": "Travelers",
-      "name": "Product Owner",
-      "url": "https://www.travelers.com/",
-      "type": "Work",
-      "startDate": "2023-08-15",
-      "summary": "Between a rock and a hard place, running middle layer integration team that serves as an entry point for some 70+ integrations between a 3rd party provider and the Travelers services ecosystem.  At high level the team was responsible for the maintaince of the middle layer, this focud our efforts was on reliability and observability.",
-      "highlights": [
-        "Created a high level view that tracks the progress of intgration work and their promotion across the many levels enviroments",
-        "Organized the work effort for the different integration types into oranized and repeatble units of work.",
-        "Converted a two week per intergation coding process into a collection of reusable components that reduced the effort to configuration."
-      ]
-    },
-    {
-      "company": "Travelers",
-      "name": "Sr. Software Engineer",
-      "url": "https://www.travelers.com/",
-      "type": "Work",
-      "startDate": "2022-03-15",
-      "summary": "Focus on code quality and developer experience, I got to dig deep into development patterns that created code smells and enable an increase in team feature delivery velocity.",
-      "highlights": [
-        "Refactored an existing collection of angular components with a pattern of copy/pasting into generic components enabling the existing functionality with about 40% of the original code.",
-        "Created a domain specific language to describe the behaviors of forms that the teams created as part of day to day work.",
-        "Explored pathways to improve the deployment story as the company wants to shift to cloud deployment."
-      ]
-    },
-    {
-      "company": "Change Healthcare",
-      "name": "Sr. Software Engineer (Services Delivery)",
-      "url": "https://www.lyric.ai/",
-      "type": "Work",
-      "startDate": "2018-01-15",   
-      "endDate": "2022-03-15",     
-      "summary": "As a senior software engineer on the Services Delivery team, my responsibilities centered around the development of processes and tools to transition the team to a cloud and self-service model.",
-      "highlights": [        
-        "Spearheaded the design of customer deliverables for product migration to container based delivery & deployment.",
-        "Mentored engineers working on specialized internal tooling for the Services Delivery team.",
-        "Streamlined the customer configuration & release process changing it from 3 week manual effort to push button automation that consumes an existing customer intake sheet.",
-        "Designed and developed a bot that handled CI/CD automation driven by the Jira business workflow for customer release delivery.", 
-        "Implemented sanity checks and systems validity testing for release and deployments completed by automation.",
-        "Pushed to drive the team to better coding standards with code review, pair-programming and brown-bag sessions."        
-      ]
-    },
-    {
-      "company": "Change Healthcare",
-      "name": "Sr. Software Engineer (Product)",
-      "url": "https://www.lyric.ai/",
-      "type": "Work",
-      "startDate": "2017-01-15",  
-      "endDate": "2018-01-15",    
-      "summary": "As a software engineer on the product development team, my responsibilities include development of new workflows and features, bug fixes, and guiding the product team towards cleaner and simpler product delivery.",
-      "highlights": [
-        "Validated system integration modules against new versions of peripheral software products. In the process developed additional adapters to bridge version incompatibilities.",
-        "Resolved long standing services issues with updates for service packs, finally allowing a single service pack to upgrade any old version of our product.",
-        "Proposed and implemented improvements to the development, building and deployment of hotfix packages, streamlining the process from a complicated four-part configuration process into a single \"source of truth\" layout file.",
-        "Worked as an intermediary between the production team and my old services team to create smoother product handoff with fewer breaking changes for process developed by services team."
-      ]
-    },
-    {
-      "company": "McKesson",
-      "name": "Sr. Software Engineer (Services Delivery)",
-      "url": "https://mckesson.com",
-      "startDate": "2011-09-15",
-      "type": "Work",  
-      "endDate": "2017-01-15",    
-      "summary": "As a software engineer on a service delivery team, my responsibilities included implementation of special application requirements, packaging custom configuration, and general oversight of tech-related issues for each of our clients. As the senior engineer on the team, I was also responsible for setting the strategy for the team to solve less trivial problems.",
-      "highlights": [
-        "Developed a deployment strategy for customer-centric product overrides. Abstracted the complexity of WIX installer MSI behind a business problem-oriented Domain Specific Language (DSL). Automated the build process, leading to reduced build times and decreased user packaging errors.",
-        "Oversaw design on several in-house, web-based software tools. In the process, reduced duplication efforts between tools by extracting core shared elements into a supporting McKesson-branded UX framework.",
-        "Took charge of developer growth effort with regular \"brown bag\" sessions and knowledge transfer on different topics of interest."
-      ]
-    },
-    {
-      "company": "Korchek Technologies",
-      "name": "Software Engineer",
-      "url": "http://korchek.com/",
-      "startDate": "2007-05-01",
-      "type": "Work",
-      "endDate": "2011-09-15",
-      "summary": "Worked on a small development team as a .NET C# developer, but like most members of a small teams, wore many hats in the process.  Under the guidance of the Sr. Engineer, gained a finer appreciation for elegant and simple solution design.",
-      "highlights": [
-        "Worked on development of new products, including CareChek 2 & 3 and Korchek Report System.",
-        "Pioneering new web based product, Web Unit Archive, which leveraged client side data binding frameworks to provide a thick client user experience in a web browser.",
-        "Involved in data conversion and automation scripts.  Creating conversion mappers for legacy binary data in efforts archive customer deprecated applications."
-      ]
-    },
-    {
-      "company": "Cosential",
-      "name": "Software Engineer",
-      "url": "https://www.cosential.com/",
-      "startDate": "2006-04-01",
-      "type": "Work",
-      "endDate": "2007-05-01",
-      "summary": "As one of three developers in the company at the time, I had the opportunity to work and many differing capacities, which was a great learning experience for this early time in my career. Cosential was my first job on a strictly web based application and it was here where I was exposed to asynchronous javascript request.  Seeing the importance and impact of the technology, AJAX and front end engineering became a focus of personal growth.",
-      "highlights": [
-        "Learned and worked with ColdFusion to maintain and extend the Cosential CMS application",
-        "Creating PHP data sync connections for clients database systems in order to migrate them to our service",
-        "Building custom websites for our clients from designer image files with HTML, CSS and JavaScript"
-      ]
-    },
-    {
-      "company": "Abbott Jewelry Systems",
-      "name": "Jr. Software Engineer",
-      "url": "http://theedgeforjewelers.com/",
-      "type": "Work",
-      "startDate": "2004-10-01",
-      "endDate": "2006-04-01",
-      "summary": "Starting work while still taking classes at college, I was lucky to have played chess with the CTO at a local coffee shop.  After winning against Joe, he invited me for an interview at his company and took a risk on me after looking at some PHP scripts of questionable quality.  In the time I worked under Joe, his decades of experience and wisdom were a strong influence on my development as an engineer.",
-      "highlights": [
-        "Introduction into .NET programing with ASP.NET Web Forms and VB.NET desktop applications",
-        "Worked with the Compact Framework version of .NET to build out and deliver inventory tracking software for Windows Mobile 5",
-        "Created inventory syncing storefront websites for clients of AJSLLC Edge users"
-      ]
-    }
-  ],
-  "volunteer": [],
-  "education": [],
-  "awards": [],
-  "publications": [],
-  "skills": [
-    {
-      "name": "Web Development",
-      "level": "Advanced",
-      "keywords": [
-        "Javascript (TypeScript)",
-        "Angular & AngularJS",
-        "HTML / CSS / Bootstrap",
-        "Frontend MVC and MVVM"        
-      ]
-    },
-    {
-      "name": ".NET Framework / 6.0",
-      "level": "Fluent",
-      "keywords": [
-        "C# / F# (beginner)",
-        "ASP.NET / NancyFX",        
-        "Orleans",
-        "Blazor"
-      ]
-    },
-    {
-      "name": "Leadership",
-      "level": "Intermediate",
-      "keywords": [
-        "Agile / Scrum",
-        "Brownbags",
-        "Code Reviews",
-        "Self-awareness",
-        "Empathy"
-      ]
-    },
-    {
-      "name": "Testing",
-      "level": "Intermediate",
-      "keywords": [
-        "Jasmine (JS) / Protractor",
-        "XUnit (.NET)",
-        "Fitness & SpecFlow",
-        "ZeUnit (personal pet project)"
-      ]
-    },
-    {
-      "name": "Cloud",
-      "level": "Intermediate",
-      "keywords": [
-        "AWS",        
-        "Azure",
-        "Containers",
-        "Octopus"        
-      ]
-    },
-    {
-      "name": "Build Tools",
-      "level": "Fluent",
-      "keywords": [
-        "Windows Installer XML (WIX)",
-        "TeamCIty Server",
-        "GitLabs",
-        "NANT / PowerShell"
-      ]
-    }
-  ],
-  "languages": [
-    {
-      "language": "English",
-      "fluency": "Native speaker "
-    },
-    {
-      "language": "Russian",
-      "fluency": "Native speaker"
-    }
-  ],
-  "interests": [
-    {
-      "name": "Sports",
-      "keywords": [
-        "Unicycling", 
-        "Mountain Biking",
-        "Underwater Hockey",
-        "Hiking & Camping",
-        "Yoga"
-      ]
-    },
-    {
-      "name": "Life",
-      "keywords": [
-        "Raising Kids",
-        "Audio Books",
-        "Dogs / Fostering",
-        "Strategy Boardgame"
-      ]
-    }
-  ],
-  "references": []
+import type { TimeLineEntryProperties } from "./TimeLineEntryProperties";
+const result: any = import.meta.glob('/resume.json', {
+  import: 'default',
+  as: 'raw',
+  eager: true, // defaults to false
+});
+
+const details: any =  {};
+const loaded =  import.meta.glob('/src/routes/history/**.mdx', {
+  import: 'default',
+  as: 'raw',
+  eager: true, // defaults to false
+});
+
+for (const key in loaded) {
+  const newKey = key.replace('/src/routes/history/', '').replace('index.mdx', '');
+  console.log(key, newKey);    
+  details[newKey] = loaded[key];
 }
 
-export { resume }
+console.log(details);
+
+const resume = JSON.parse(result['/resume.json']);
+
+const timeline : TimeLineEntryProperties[] = []
+// work history  
+.concat(resume.work.map((job: any) => { return { 
+    name: job.position, 
+    type: "work",
+    ...job 
+  }}))
+
+  // project history
+  .concat(resume.projects.map((project: any) => { return { 
+    copmanyLogo: "", 
+    company : "GitHub",
+    type: "project",
+    ...project 
+  }}))
+
+  // school history
+  .concat(resume.education.map((education: any) => { return { 
+    copmanyLogo: "",       
+    company : education.institution,
+    type: "education",
+    name: education.studyType,
+    ...education } as TimeLineEntryProperties}));    
+
+
+export { timeline, details }

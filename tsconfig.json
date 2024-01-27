@@ -21,6 +21,6 @@
       "~/*": ["./src/*"]
     }
   },
-  "files": ["./.eslintrc.cjs"],
-  "include": ["src", "./*.d.ts", "./*.config.ts"]
+  "files": ["./.eslintrc.cjs", "./src/components/TimeLineEntryProperties.tsx"],
+  "include": ["src", "./*.d.ts", "./*.config.ts", "resume.vite.plugin.ts"]
 }

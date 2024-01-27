@@ -1,11 +1,11 @@
 import { component$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
+import { Link, type DocumentHead } from "@builder.io/qwik-city";
+import { FaDownloadSolid } from "@qwikest/icons/font-awesome";
 import { Intro, IntroFooter } from "~/components/Intro";
 import Page  from "~/components/Page";
 import Present from "~/components/Present";
 import { ThemeToggle } from "~/components/ThemeToggle";
-// import { ThemeToggle } from "~/components/ThemeToggle";
-import { resume } from "~/components/resume";
+import { details, timeline } from "~/components/resume";
 
 export function Glow() {
   const id = "testUd";
@@ -70,8 +70,8 @@ export function Timeline() {
   )
 }
 
-
 export default component$(() => {  
+  console.log(details);
   return (
     <>    
       <div class="relative flex-none overflow-hidden px-6 lg:pointer-events-none lg:fixed lg:inset-0 lg:flex lg:px-0 bg-gray-900 lg:bg-transparent" >
@@ -81,7 +81,6 @@ export default component$(() => {
           <div class="mx-auto max-w-lg md:mx-64 lg:mx-[calc(max(2rem,50%-32rem))] lg:flex lg:w-96 lg:max-w-none lg:flex-col lg:before:flex-1 lg:before:pt-6">
             <div class="pb-16 pt-20 sm:pb-20 sm:pt-32 lg:py-20">
               <div class="relative content-center">
-                {/* <StarField class="-right-44 top-14" /> */}
                 <Intro/>
               </div>
             </div>
@@ -90,18 +89,28 @@ export default component$(() => {
             </div>
           </div>
         </div>
-      </div>
-      <ThemeToggle />
+      </div>                      
+        <ThemeToggle />      
+        <Link target="_blank" class="group absolute right-14 top-3 z-50 -m-2.5 p-2.5" href="sergei-golos-resume.pdf">
+          <button type="button" 
+            class="px-2.5 py-2 text-sm font-semibold shadow-sm flex
+            lg:bg-white lg:text-gray-500 lg:ring-1 lg:ring-inset lg:ring-gray-300 lg:hover:text-gray-900
+            bg-white/10 text-white/50 ring-1 ring-inset ring-gray-300 hover:text-white/90
+            lg:dark:bg-white/10 lg:dark:text-white/50 lg:dark:hover:text-white/90">
+              <FaDownloadSolid class="pr" />
+              <span class="pl-2 -mt-1">résumé</span>
+          </button>
+        </Link>
       <div class="relative flex-auto pointer-events-none">
         <Timeline />
         <main class="space-y-2 py-20 sm:space-y-2 sm:py-8">
           <Present />
-          {resume.Timeline
-            .sort(function(a, b) {
-              return a.startDate > b.startDate ? -1 : 1;
-            })
-            .map((job, index) => <Page {...job} key={index} />)}          
+          {timeline.sort(function(a, b) {
+            return a.startDate > b.startDate ? -1 : 1;
+          }).
+          map((job, index) => <Page {...job} key={index} />)}          
         </main>
+        {/* {details.map((job, index) => <div key={index}>{index}</div>)} */}
       </div>    
     </>
   );
