@@ -91,15 +91,13 @@ export default component$(() => {
         </div>
       </div>                      
         <ThemeToggle />      
-        <Link target="_blank" class="group absolute right-14 top-3 z-50 -m-2.5 p-2.5" href="sergei-golos-resume.pdf">
-          <button type="button" 
-            class="px-2.5 py-2 text-sm font-semibold shadow-sm flex
-            lg:bg-white lg:text-gray-500 lg:ring-1 lg:ring-inset lg:ring-gray-300 lg:hover:text-gray-900
-            bg-white/10 text-white/50 ring-1 ring-inset ring-gray-300 hover:text-white/90
-            lg:dark:bg-white/10 lg:dark:text-white/50 lg:dark:hover:text-white/90">
-              <FaDownloadSolid class="pr" />
-              <span class="pl-2 -mt-1">résumé</span>
-          </button>
+        <Link target="_blank"
+              href="sergei-golos-resume.pdf"
+              class="group absolute right-14 top-3 z-50 p-2 font-semibold
+            lite:lg:bg-white lg:text-gray-500 lg:hover:text-gray-900
+            text-white/50 hover:text-white/90
+            lg:dark:text-white/50 lg:dark:hover:text-white/90">
+              <FaDownloadSolid height={20} width={20} />
         </Link>
       <div class="relative flex-auto pointer-events-none">
         <Timeline />
