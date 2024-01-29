@@ -26,7 +26,7 @@ export function IntroFooter() {
     <div class="flex items-center gap-x-2 text-[0.8125rem]/6 text-gray-500 pointer-events-auto">
       {resume.basics.profiles.map((profile: any, index: number) => {                
         return <Link key={index} href={profile.url}>
-          <span class="flex gap-x-2">
+          <span class="flex gap-x-2 text-lg">
             {profile.network == "Blog" && <FaBlogSolid />}
             {profile.network == "GitHub" && <FaGithub />}
             {profile.network == "Stack Overflow" && <FaStackOverflow />}
