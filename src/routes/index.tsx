@@ -6,6 +6,7 @@ import Page  from "~/components/Page";
 import Present from "~/components/Present";
 import { ThemeToggle } from "~/components/ThemeToggle";
 import { details, timeline } from "~/components/resume";
+import ResumeLink from "~/components/resume-link";
 
 export function Glow() {
   const id = "testUd";
@@ -70,8 +71,7 @@ export function Timeline() {
   )
 }
 
-export default component$(() => {  
-  console.log(details);
+export default component$(() => {    
   return (
     <>    
       <div class="relative flex-none overflow-hidden px-6 lg:pointer-events-none lg:fixed lg:inset-0 lg:flex lg:px-0 bg-gray-900 lg:bg-transparent" >
@@ -90,15 +90,8 @@ export default component$(() => {
           </div>
         </div>
       </div>                      
-        <ThemeToggle />      
-        <Link target="_blank"
-              href="sergei-golos-resume.pdf"
-              class="group absolute right-14 top-3 z-50 p-2 font-semibold
-            lite:lg:bg-white lg:text-gray-500 lg:hover:text-gray-900
-            text-white/50 hover:text-white/90
-            lg:dark:text-white/50 lg:dark:hover:text-white/90">
-              <FaDownloadSolid height={20} width={20} />
-        </Link>
+      <ThemeToggle />      
+      <ResumeLink href="sergei-golos-resume.pdf" />
       <div class="relative flex-auto pointer-events-none">
         <Timeline />
         <main class="space-y-2 py-20 sm:space-y-2 sm:py-8">
