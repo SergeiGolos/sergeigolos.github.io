@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik"
 
-export  default component$((props: any) => {
+export default component$((props: any) => {
   return (
     <svg viewBox="0 0 16 16" aria-hidden="true" {...props}>
       <path
