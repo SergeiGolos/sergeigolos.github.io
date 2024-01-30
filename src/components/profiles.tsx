@@ -7,7 +7,7 @@ export default component$(() => {
     return (<>
     <div class="flex items-center gap-x-2 text-[0.8125rem]/6 text-gray-500 pointer-events-auto">
       {resume.basics.profiles.map((profile: any, index: number) => {                
-        return <Link key={index} href={profile.url}>
+        return <Link key={index} href={profile.url} aria-label={`Link to ${profile.username} profile on ${profile.network}`}>
           <span class="flex gap-x-2 text-lg">
             {profile.network == "Blog" && <FaBlogSolid />}
             {profile.network == "GitHub" && <FaGithub />}
