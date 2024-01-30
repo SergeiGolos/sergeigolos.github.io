@@ -52,12 +52,9 @@ export default component$(() => {
         <ThemeToggle />
         <ResumeLink href="sergei-golos-resume.pdf" />
         <div class="relative flex-auto pointer-events-none">
-          <Timeline />
-          <main class="space-y-2 py-20 sm:space-y-2 sm:py-8">
             <Timeline />
-            <main class="space-y-2 py-20 sm:space-y-2 sm:py-8">
-              <Slot />
-            </main>
+            <main class="space-y-2 py-8 lg:py-20 sm:space-y-2 sm:py-8">
+              <Slot />    
           </main>
         </div>
       </main>

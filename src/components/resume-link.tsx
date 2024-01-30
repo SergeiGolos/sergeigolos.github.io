@@ -5,6 +5,7 @@ import { FaDownloadSolid } from "@qwikest/icons/font-awesome";
 export default component$((params : {href: string}) => {    
     return (
         <Link target="_blank"
+              type="button"
               href={params.href}
               class="group absolute right-14 top-3 z-50 p-2 font-semibold
             lite:lg:bg-white lg:text-gray-500 lg:hover:text-gray-900
