@@ -1,11 +1,11 @@
 import { component$ } from "@builder.io/qwik";
-import { Link, type DocumentHead } from "@builder.io/qwik-city";
-import { FaDownloadSolid } from "@qwikest/icons/font-awesome";
-import { Intro, IntroFooter } from "~/components/Intro";
+import { type DocumentHead } from "@builder.io/qwik-city";
+import Intro from "~/components/profile-intro";
+import Profile from "~/components/profiles";
 import Page  from "~/components/Page";
 import Present from "~/components/Present";
 import { ThemeToggle } from "~/components/ThemeToggle";
-import { details, timeline } from "~/components/resume";
+import { timeline } from "~/components/resume";
 import ResumeLink from "~/components/resume-link";
 
 export function Glow() {
@@ -81,11 +81,13 @@ export default component$(() => {
           <div class="mx-auto max-w-lg md:mx-64 lg:mx-[calc(max(2rem,50%-32rem))] lg:flex lg:w-96 lg:max-w-none lg:flex-col lg:before:flex-1 lg:before:pt-6">
             <div class="pb-16 pt-20 sm:pb-20 sm:pt-32 lg:py-20">
               <div class="relative content-center">
-                <Intro/>
+                <Intro>
+                  <span class="text-sky-300">software enthusiast</span> and <span class="text-sky-300">forever student</span>
+                </Intro>
               </div>
             </div>
             <div class="flex flex-1 items-end justify-center pb-4 lg:justify-center lg:pb-6 lg:z-40">
-              <IntroFooter />
+              <Profile />
             </div>
           </div>
         </div>
@@ -100,8 +102,7 @@ export default component$(() => {
             return a.startDate > b.startDate ? -1 : 1;
           }).
           map((job, index) => <Page {...job} key={index} />)}          
-        </main>
-        {/* {details.map((job, index) => <div key={index}>{index}</div>)} */}
+        </main>        
       </div>    
     </>
   );
