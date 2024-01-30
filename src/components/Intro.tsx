@@ -9,7 +9,7 @@ export function Intro() {
         height={256}
         width={256}
         class="mx-auto h-64 w-64 rounded-full"
-        src="https://avatars.githubusercontent.com/u/660992"
+        src={resume.basics.image}
       />
       <h1 class="mt-14 font-display text-4xl/tight font-light text-white">
         {resume.basics.name}{' '}<span class="text-sky-300">software enthusiast</span> and <span class="text-sky-300">forever student</span>

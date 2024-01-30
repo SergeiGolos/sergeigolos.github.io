@@ -1,7 +1,7 @@
 {  
   "basics": {
     "name": "Sergei Golos",
-    "image" : "",
+    "image" : "profile.png",
     "label": "Sr. Software Engineer",    
     "email": "sergei.golos@gmail.com",      
     "summary": "Over the 18 years of my software development career, I have worn many hats. I have worked with \"front-end\" javascript, created \"back-end\" services, developed mobile applications, deployed and organized Continuous Integration systems, drilled deep down into Windows Installer to improve product delivery and deployment, and created architectural strategy for internal tools. The wide range of software practices under my belt have helped me identify cross-disciplinary patterns, and in turn, given me a broader understanding of the software development process on my path to being a well rounded engineer.",
