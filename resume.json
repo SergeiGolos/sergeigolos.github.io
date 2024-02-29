@@ -148,7 +148,7 @@
       "endDate": "2011-09-15",
       "summary": "Worked on a small development team as a .NET C# developer, but like most members of a small teams, wore many hats in the process.  Under the guidance of the Sr. Engineer, gained a finer appreciation for elegant and simple solution design.",
       "highlights": [
-        "Worked on development of new products, including CareChek 2 & 3 and Korchek Report System.",
+        "Worked on development of new products, including CareCheck 2 & 3 and Korchek Report System.",
         "Pioneering new web based product, Web Unit Archive, which leveraged client side data binding frameworks to provide a thick client user experience in a web browser.",
         "Involved in data conversion and automation scripts.  Creating conversion mappers for legacy binary data in efforts archive customer deprecated applications."
       ]      
@@ -174,7 +174,7 @@
       "endDate": "2006-04-01",
       "summary": "Starting work while still taking classes at college, I was lucky to have played chess with the CTO at a local coffee shop.  After winning against Joe, he invited me for an interview at his company and took a risk on me after looking at some PHP scripts of questionable quality.  In the time I worked under Joe, his decades of experience and wisdom were a strong influence on my development as an engineer.",
       "highlights": [
-        "Introduction into .NET programing with ASP.NET Web Forms and VB.NET desktop applications",
+        "Introduction into .NET programming with ASP.NET Web Forms and VB.NET desktop applications",
         "Worked with the Compact Framework version of .NET to build out and deliver inventory tracking software for Windows Mobile 5",
         "Created inventory syncing storefront websites for clients of AJSLLC Edge users"
       ]
@@ -196,7 +196,7 @@
       ]
     },
     {
-      "name": ".NET Framework / 6.0",
+      "name": "dotnet",
       "level": "Senior",
       "keywords": [
         "C# / F# (beginner)",
@@ -207,10 +207,10 @@
     },
     {
       "name": "Leadership",
-      "level": "Intermediate",
+      "level": "Senior",
       "keywords": [
         "Agile / Scrum",
-        "Brownbags",
+        "Brown-bags",
         "Code Reviews",
         "Self-awareness",
         "Empathy"
@@ -261,7 +261,7 @@
     {
       "name": "Sports",
       "keywords": [
-        "Unicycling", 
+        "Unicyclist", 
         "Mountain Biking",
         "Underwater Hockey",
         "Hiking & Camping",
@@ -274,7 +274,7 @@
         "Raising Kids",
         "Audio Books",
         "Dogs / Fostering",
-        "Strategy Boardgame"
+        "Strategy Boardgames"
       ]
     }
   ],
