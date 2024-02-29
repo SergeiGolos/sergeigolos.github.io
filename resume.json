@@ -48,9 +48,9 @@
   {
     "name": "Open Source: Founder QuickDsl",
     "startDate": "2022-01-05",
-    "description": "A prototype libary for quickly building functional DSL languages in XML. The goal is to quickly stand up behavior around existing XML data.",
+    "description": "A prototype library for quickly building functional DSL languages in XML. The goal is to quickly stand up behavior around existing XML data.",
     "highlights": [
-      "Defind polymorphic serialization at the child definition instead of the parent, allowing the language to grow horizonatlly without breaking existing code."
+      "Defend polymorphic serialization at the child definition instead of the parent, allowing the language to grow horizontally without breaking existing code."
     ],
     "url": "https://github.com/bitcobblers/QuickDSL"
   },
