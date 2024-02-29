@@ -186,26 +186,6 @@
   "publications": [],
   "skills": [
     {
-      "name": "Web Development",
-      "level": "Advanced",
-      "keywords": [
-        "Javascript (TypeScript)",
-        "Angular & AngularJS",
-        "HTML / CSS / Bootstrap",
-        "Frontend MVC and MVVM"        
-      ]
-    },
-    {
-      "name": "dotnet",
-      "level": "Senior",
-      "keywords": [
-        "C# / F# (beginner)",
-        "ASP.NET / NancyFX",        
-        "Orleans",
-        "Blazor"
-      ]
-    },
-    {
       "name": "Leadership",
       "level": "Senior",
       "keywords": [
@@ -213,17 +193,42 @@
         "Brown-bags",
         "Code Reviews",
         "Self-awareness",
-        "Empathy"
+        "Empathy",
+        "Understanding"
       ]
     },
+    {
+      "name": "Web",
+      "level": "Advanced",
+      "keywords": [
+        "Javascript",
+        "TypeScript",
+        "Angular",
+        "Bootstrap",
+        "TailwindCSS"        
+      ]
+    },
+    {
+      "name": "dotnet",
+      "level": "Senior",
+      "keywords": [
+        "C#",        
+        "ASP.NET",        
+        "Orleans",
+        "Blazor",
+        "F# (beginner)"
+      ]
+    },    
     {
       "name": "Testing",
       "level": "Intermediate",
       "keywords": [
-        "Jasmine (JS) / Protractor",
+        "Jasmine (JS)",
+        "Protractor",
         "XUnit (.NET)",
+        "ZeUnit",        
         "Fitness & SpecFlow",
-        "ZeUnit (personal pet project)"
+        "Storyteller"
       ]
     },
     {
@@ -233,7 +238,8 @@
         "AWS",        
         "Azure",
         "Containers",
-        "Octopus"        
+        "Octopus",
+        "Terraform"
       ]
     },
     {
