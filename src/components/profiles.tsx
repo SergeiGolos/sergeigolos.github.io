@@ -9,7 +9,7 @@ export default component$(() => {
       {resume.basics.profiles.map((profile: any, index: number) => {                
         return <Link key={index} href={profile.url} aria-label={`Link to ${profile.username} profile on ${profile.network}`}>
           <span class="flex gap-x-2 text-lg">
-            {profile.network == "Blog" && <FaBlogSolid />}
+            {profile.network == "Blogger" && <FaBlogSolid />}
             {profile.network == "GitHub" && <FaGithub />}
             {profile.network == "Stack Overflow" && <FaStackOverflow />}
             {profile.network == "LinkedIn" && <FaLinkedin />}
