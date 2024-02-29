@@ -7,7 +7,7 @@ export default component$(()=> {
     height={256}
     width={256}
     class="mx-auto h-64 w-64 rounded-full"
-    src={resume.basics.image}
+    src={resume.basics.webImage}
     alt={`Profile image for ${resume.basics.name}`}
   />
   <h1 class="mt-14 font-display text-4xl/tight font-light text-white">
