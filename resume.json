@@ -72,7 +72,7 @@
       "position": "Product Owner",
       "website": "https://www.travelers.com/",
       "startDate": "2023-08-15",
-      "summary": "Between a rock and a hard place, running middle layer integration team that serves as an entry point for some 70+ integrations between a 3rd party provider and the Travelers services ecosystem.  At high level the team was responsible for the maintenance of the middle layer, this focused our efforts was on reliability and observability.",
+      "summary": "Responsible for a team maintaining a middle layer integration system that serves as an entry point for 70+ third party providers into the Travelers services ecosystem. The focus of our efforts was on reliability and observability.",
       "highlights": [
         "Converted a two week per integration coding process into a collection of reusable components that reduced the effort to configuration.",        
         "Organized the work effort for the different integration types into trackable and repeatable units of work.",
