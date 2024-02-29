@@ -16,8 +16,7 @@
         "network": "Blog",
         "username": "sergei-golos",
         "url": "https://bitcobblers.com/"
-      },
-      
+      },      
       {
         "network": "GitHub",
         "username": "sergeigolos",
@@ -86,6 +85,7 @@
       "position": "Sr. Software Engineer ",
       "website": "https://www.travelers.com/",
       "startDate": "2022-03-15",
+      "endDate": "2023-08-15", 
       "summary": "Focus on code quality and developer experience, I got to dig deep into development patterns that created code smells and enable an increase in team feature delivery velocity.",
       "highlights": [
         "Refactored an existing collection of angular components with a pattern of copy/pasting into generic components enabling the existing functionality with about 40% of the original code.",
