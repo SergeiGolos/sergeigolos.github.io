@@ -1,7 +1,7 @@
 {  
   "basics": {
     "name": "Sergei Golos",
-    "image" : "public/profile.webp",
+    "image" : "https://sergeigolos.github.io/profile.webp",
     "webImage" : "profile.webp",
     "label": "Sr. Software Engineer",    
     "email": "sergei.golos@gmail.com",      
