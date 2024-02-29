@@ -13,11 +13,6 @@
     },
     "profiles": [
       {
-        "network": "Blogger",
-        "username": "bitcobblers.com",
-        "url": "https://bitcobblers.com/"
-      },      
-      {
         "network": "GitHub",
         "username": "sergeigolos",
         "url": "https://github.com/sergeigolos/"
@@ -31,6 +26,11 @@
         "network": "LinkedIn",
         "username": "sergei-golos",
         "url": "https://www.linkedin.com/in/sergei-golos-11172164/"
+      },
+      {
+        "network": "Blogger",
+        "username": "bitcobblers.com",
+        "url": "https://bitcobblers.com/"
       }
     ]
   },
