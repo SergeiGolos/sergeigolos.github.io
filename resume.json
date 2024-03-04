@@ -52,7 +52,7 @@
     "highlights": [
       "Defend polymorphic serialization at the child definition instead of the parent, allowing the language to grow horizontally without breaking existing code."
     ],
-    "url": "https://github.com/bitcobblers/QuickDSL"
+    "url": "https://github.com/sergeigolos/QuickDSL"
   },
   {
     "name": "Open Source: Pull Request #789 Storyteller",
