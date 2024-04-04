@@ -34,7 +34,18 @@
       }
     ]
   },
-  "projects": [{
+  "projects": [
+    {
+      "name": "Open Source: Timers Ninja",
+      "startDate": "2024-03-15",
+      "description": "Markdown language for generating workout timers from plain text inspired the mermaid markdown language.  Used for home workouts, the project was a deeper exploration of building domain specific languages with lexical parsing.",
+      "highlights": [
+        "Deep dive into the inner working of language construction.  The project breaks down markdown strings into tokens, creates a syntax tree with parser and walks the tree with language interpreter to generate a collection of timers.",
+        "Chrome-cast enabled controls for timers, allowing old TVs become low cost barrier to entry for a configurable home workout timer."
+      ],
+      "url": "https://github.com/bitcobblers/timers-ninja"
+    },
+    {
     "name": "Open Source: Founder ZeUnit",
     "startDate": "2021-01-07",
     "description": "Testing framework designed to bridge the gap between traditional unit and system wide integration testing.  The design goals of ZeUnit are grounded in the realization of a sad truth, developers will be writing integration tests and not business people who focus the data. Facing this reality, begs the question, 'Why write the tests in a made up markup language when dotnet developers feel most comfortable using dotnet?'",
@@ -44,16 +55,7 @@
       "Test functions return the results, not 'spooky action as a distance' to mutate execution state making asynchronous testing easy to support."
     ],
     "url": "https://github.com/bitcobblers/ZeUnit"
-  },
-  {
-    "name": "Open Source: Founder QuickDsl",
-    "startDate": "2022-01-05",
-    "description": "A prototype library for quickly building functional DSL languages in XML. The goal is to quickly stand up behavior around existing XML data.",
-    "highlights": [
-      "Defend polymorphic serialization at the child definition instead of the parent, allowing the language to grow horizontally without breaking existing code."
-    ],
-    "url": "https://github.com/sergeigolos/QuickDSL"
-  },
+  },  
   {
     "name": "Open Source: Pull Request #789 Storyteller",
     "startDate": "2020-01-14",
@@ -72,10 +74,11 @@
       "position": "Staff Software Engineer",
       "website": "https://www.lyric.ai/",
       "startDate": "2024-04-08",
-      "summary": "Analyzed the current 'Content Manager' product and speared-headed the migration to the cloud with a focus on performance, scalability, reliability, and cost-effectiveness.",
+      "summary": "Speared-heading the migration to the cloud of the existing 'Content Manager' product with a focus on performance, scalability, reliability, and cost-effectiveness.",
       "highlights": [
-        "Proactively seek out knowledge and training resources to enhance skill development.",
-        "Thrive in collaborative environments where I can learn from experienced colleagues."
+        "A 90-day learning plan for hitting the ground running with a focus relationship and consensus building. ",
+        "Proactively seek out knowledge and training resources to enhance my understanding of business problems facing the company.",
+        "Create a collaborative team environment that encourages members to thrive and to learn and grow together."
       ]
     },
     {

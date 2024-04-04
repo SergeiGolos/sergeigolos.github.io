@@ -26,7 +26,7 @@ export default component$((props: TimeLineEntryProperties) => {
                 <span>@</span>
                 <Link target="blank" href={props.url}>{props.company}</Link>
               </h3>              
-              <p>{props.summary}</p>
+              <p>{props.summary || props.description}</p>
               <ul class="list-disc">
                 {props.highlights.map((item, index) => (<li key={index}>{item}</li>))}
               </ul>
