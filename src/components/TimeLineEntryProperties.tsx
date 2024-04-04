@@ -1,5 +1,6 @@
 export interface TimeLineEntryProperties {
-  summary: string;
+  summary?: string;
+  description?: string;
   type: string;
   name: string;
   startDate: string;
