@@ -78,7 +78,7 @@ export default component$<CompactFilterBarProps>(
 
           {/* Year Range Selector Dropdown */}
           {showYearSelector.value && (
-            <div class="absolute top-full mt-2 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 p-4 min-w-80 z-60">
+            <div class="absolute top-full mt-2 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 p-4 min-w-80 z-50">
               <div class="mb-3">
                 <h4 class="text-sm font-medium text-gray-900 dark:text-white mb-2">Date Range</h4>
                 <div class="flex items-center gap-2 mb-3">
@@ -153,7 +153,7 @@ export default component$<CompactFilterBarProps>(
 
           {/* Tag Selector Dropdown */}
           {showTagSelector.value && (
-            <div class="absolute top-full mt-2 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 p-4 min-w-64 max-w-80 z-60">
+            <div class="absolute top-full mt-2 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 p-4 min-w-64 max-w-80 z-50">
               <h4 class="text-sm font-medium text-gray-900 dark:text-white mb-3">Add Technology Tags</h4>
               <div class="max-h-48 overflow-y-auto">
                 <div class="flex flex-wrap gap-2">
@@ -181,7 +181,7 @@ export default component$<CompactFilterBarProps>(
         {/* Click outside to close dropdowns */}
         {(showYearSelector.value || showTagSelector.value) && (
           <div 
-            class="fixed inset-0 z-40" 
+            class="fixed inset-0 z-40 bg-transparent" 
             onClick$={() => {
               showYearSelector.value = false;
               showTagSelector.value = false;
