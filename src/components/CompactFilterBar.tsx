@@ -55,7 +55,7 @@ export default component$<CompactFilterBarProps>(
     );
 
     return (
-      <div class="fixed right-24 top-3 z-50 flex items-center gap-2 rounded-lg bg-white/90 backdrop-blur-sm px-3 py-2 shadow-lg border border-gray-200 dark:bg-gray-900/90 dark:border-gray-700">
+      <div class="fixed right-24 top-3 z-50 flex items-center gap-2">
         {/* Compact Year Range Display/Selector */}
         <div class="relative">
           <button
@@ -63,13 +63,13 @@ export default component$<CompactFilterBarProps>(
               showYearSelector.value = !showYearSelector.value;
               showTagSelector.value = false;
             }}
-            class="flex items-center gap-1 text-xs font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+            class="group flex items-center gap-1 p-2 font-semibold text-white/50 hover:text-white/90 lg:text-gray-500 lg:hover:text-gray-900 lg:dark:text-white/50 lg:dark:hover:text-white/90 transition-colors"
             title="Click to adjust date range"
           >
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            <span>{filterState.yearRange[0]} - {filterState.yearRange[1]}</span>
+            <span class="text-xs font-medium">{filterState.yearRange[0]} - {filterState.yearRange[1]}</span>
             <svg class={`w-3 h-3 transform transition-transform ${showYearSelector.value ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
@@ -113,22 +113,22 @@ export default component$<CompactFilterBarProps>(
 
         {/* Selected Tags */}
         {selectedTechnologies.length > 0 && (
-          <div class="flex items-center gap-1 max-w-48 overflow-hidden">
+          <div class="flex items-center gap-1">
             {selectedTechnologies.slice(0, 3).map((tech) => (
               <button
                 key={tech}
                 onClick$={() => removeTechnology(tech)}
-                class="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full hover:bg-blue-200 transition-colors dark:bg-blue-900/50 dark:text-blue-200 dark:hover:bg-blue-900/70"
+                class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium bg-blue-600/90 text-white rounded-full hover:bg-blue-700/90 transition-colors backdrop-blur-sm"
                 title={`Remove ${tech} filter`}
               >
                 <span class="truncate max-w-16">{tech}</span>
-                <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-2 h-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             ))}
             {selectedTechnologies.length > 3 && (
-              <span class="text-xs text-gray-500 dark:text-gray-400">
+              <span class="text-xs text-white/70 lg:text-gray-500 dark:text-gray-400 font-medium">
                 +{selectedTechnologies.length - 3}
               </span>
             )}
@@ -142,10 +142,10 @@ export default component$<CompactFilterBarProps>(
               showTagSelector.value = !showTagSelector.value;
               showYearSelector.value = false;
             }}
-            class="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors dark:bg-blue-900/50 dark:text-blue-300 dark:hover:bg-blue-900/70"
+            class="group flex items-center justify-center p-2 font-semibold text-white/50 hover:text-white/90 lg:text-gray-500 lg:hover:text-gray-900 lg:dark:text-white/50 lg:dark:hover:text-white/90 transition-colors"
             title="Add technology filters"
           >
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
             </svg>
           </button>
