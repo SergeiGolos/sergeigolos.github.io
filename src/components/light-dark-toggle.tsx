@@ -2,8 +2,6 @@ import { $, component$ } from "@builder.io/qwik";
 import { FaCircleHalfStrokeSolid } from "@qwikest/icons/font-awesome";
 
 export default component$(() => {
-  const item = "dark";
-  const otherTheme = item === "dark" ? "light" : "dark";
   return (
     <button
       type="button"
@@ -19,7 +17,7 @@ export default component$(() => {
         }
       })}
     >
-      <span class="sr-only">Switch to {otherTheme} theme</span>
+      <span class="sr-only">Switch theme</span>
       <FaCircleHalfStrokeSolid class="m-1 h-4 w-4 fill-white opacity-50 transition-opacity group-hover:opacity-100 lg:fill-gray-900 lg:dark:fill-white" />
     </button>
   );
