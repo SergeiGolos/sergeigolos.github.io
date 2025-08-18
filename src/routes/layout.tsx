@@ -31,19 +31,22 @@ export default component$(() => {
   return (
     <>
       <main class="flex min-h-full flex-col bg-white dark:bg-gray-950">
-        <div class="relative flex-none overflow-hidden px-6 lg:pointer-events-none lg:fixed lg:inset-0 lg:flex lg:px-0 bg-gray-900 lg:bg-transparent" >
+        <div class="relative flex-none overflow-hidden bg-gray-900 px-6 lg:pointer-events-none lg:fixed lg:inset-0 lg:flex lg:bg-transparent lg:px-0">
           <Glow />
-          <div class="relative flex w-full lg:pointer-events-auto         
-        lg:mr-[calc(max(2rem,50%-38rem))] lg:min-w-[32rem] lg:overflow-y-auto lg:overflow-x-hidden lg:pl-2">
+          <div
+            class="relative flex w-full lg:pointer-events-auto         
+        lg:mr-[calc(max(2rem,50%-38rem))] lg:min-w-[32rem] lg:overflow-y-auto lg:overflow-x-hidden lg:pl-2"
+          >
             <div class="mx-auto max-w-lg md:mx-64 lg:mx-[calc(max(2rem,50%-32rem))] lg:flex lg:w-96 lg:max-w-none lg:flex-col lg:before:flex-1 lg:before:pt-6">
               <div class="pb-16 pt-20 sm:pb-20 sm:pt-32 lg:py-20">
                 <div class="relative content-center">
-                  <ProfileIntro >
-                    <span class="text-sky-300">software enthusiast</span> and <span class="text-sky-300">forever student</span>      
-                  </ProfileIntro>                
+                  <ProfileIntro>
+                    <span class="text-sky-300">software enthusiast</span> and{" "}
+                    <span class="text-sky-300">forever student</span>
+                  </ProfileIntro>
                 </div>
               </div>
-              <div class="flex flex-1 items-end justify-center pb-4 lg:justify-center lg:pb-6 lg:z-40">
+              <div class="flex flex-1 items-end justify-center pb-4 lg:z-40 lg:justify-center lg:pb-6">
                 <Profile />
               </div>
             </div>
@@ -51,10 +54,10 @@ export default component$(() => {
         </div>
         <ThemeToggle />
         <ResumeLink href="sergei-golos-resume.pdf" />
-        <div class="relative flex-auto pointer-events-none">
-            <Timeline />
-            <main class="space-y-2 py-8 lg:py-20 sm:space-y-2 sm:py-8">
-              <Slot />    
+        <div class="pointer-events-none relative flex-auto">
+          <Timeline />
+          <main class="space-y-2 py-8 sm:space-y-2 sm:py-8 lg:py-20">
+            <Slot />
           </main>
         </div>
       </main>

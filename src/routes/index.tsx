@@ -1,17 +1,20 @@
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
-import Page  from "~/components/Page";
+import Page from "~/components/Page";
 import Present from "~/components/Present";
 import { timeline } from "~/components/resume";
 
-export default component$(() => {    
+export default component$(() => {
   return (
-    <>              
-        <Present />
-        {timeline.sort(function(a, b) {
+    <>
+      <Present />
+      {timeline
+        .sort(function (a, b) {
           return a.startDate > b.startDate ? -1 : 1;
-        }).
-        map((job, index) => <Page {...job} key={index} />)}                    
+        })
+        .map((job, index) => (
+          <Page {...job} key={index} />
+        ))}
     </>
   );
 });
