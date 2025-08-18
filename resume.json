@@ -1,12 +1,12 @@
-{  
+{
   "basics": {
     "name": "Sergei Golos",
-    "image" : "https://sergeigolos.github.io/profile.webp",
-    "webImage" : "profile.webp",
-    "label": "Sr. Software Engineer",    
-    "email": "sergei.golos@gmail.com",      
+    "image": "https://sergeigolos.github.io/profile.webp",
+    "webImage": "profile.webp",
+    "label": "Sr. Software Engineer",
+    "email": "sergei.golos@gmail.com",
     "summary": "Throughout my 20-year software development career, I have gained extensive experience in various roles. I have worked on front-end JavaScript, developed back-end services, built mobile applications, implemented Continuous Integration systems, optimized product delivery and deployment using Windows Installer, and formulated architectural strategies for internal tools. This diverse range of software practices has allowed me to identify cross-disciplinary patterns and develop a comprehensive understanding of the software development process, making me a well-rounded engineer. This breadth of experience has left me well equipped with the skills to effectively mentor individuals and lead teams.",
-    "location": {      
+    "location": {
       "postalCode": "06525",
       "city": "Woodbridge",
       "countryCode": "US"
@@ -46,28 +46,29 @@
       "url": "https://github.com/bitcobblers/timers-ninja"
     },
     {
-    "name": "Open Source: Founder ZeUnit",
-    "startDate": "2021-01-07",
-    "description": "Testing framework designed to bridge the gap between traditional unit and system wide integration testing.  The design goals of ZeUnit are grounded in the realization of a sad truth, developers will be writing integration tests and not business people who focus the data. Facing this reality, begs the question, 'Why write the tests in a made up markup language when dotnet developers feel most comfortable using dotnet?'",
-    "highlights": [
-      "No markup language required to build tests, instead ZeUnit focuses on easily consuming outside data sources.",      
-      "Built on the principles of progressive enhancement allowing users to start with simple tests and scale the complexity for system wide integration.",
-      "Test functions return the results, not 'spooky action as a distance' to mutate execution state making asynchronous testing easy to support."
-    ],
-    "url": "https://github.com/bitcobblers/ZeUnit"
-  },  
-  {
-    "name": "Open Source: Pull Request #789 Storyteller",
-    "startDate": "2020-01-14",
-    "description": "Storyteller is an integration testing framework with a GUI for test data entry and a nice HTML subsystem for generating detailed reports.  In my personal and professional work, I found that being able to quickly generate HTML reports on code execution enabled me to build integration tests that not only flag issues with the system but also greatly helped with debugging.  When I was confronted by the limitations of adding some filtering behavior into the generated reports, I decided to dig into the code to see how this can be addressed.  The following pull request is my resolution to this roadblock.",
-    "highlights": [              
-      "Replaced hard coded functions to render static css and js content with a composable document builder.",
-      "Exposed the newly created document builder to enable side-loading additional content into the generated HTML reports.",
-      "Default behavior of the existing system remained unchanged by the pull request, expanding functionality without breaking backwards compatibility.",
-      "All additional code written has 100% unit tests coverage."
-    ],    
-    "url": "https://github.com/storyteller/Storyteller/pull/789"    
-  }],
+      "name": "Open Source: Founder ZeUnit",
+      "startDate": "2021-01-07",
+      "description": "Testing framework designed to bridge the gap between traditional unit and system wide integration testing.  The design goals of ZeUnit are grounded in the realization of a sad truth, developers will be writing integration tests and not business people who focus the data. Facing this reality, begs the question, 'Why write the tests in a made up markup language when dotnet developers feel most comfortable using dotnet?'",
+      "highlights": [
+        "No markup language required to build tests, instead ZeUnit focuses on easily consuming outside data sources.",
+        "Built on the principles of progressive enhancement allowing users to start with simple tests and scale the complexity for system wide integration.",
+        "Test functions return the results, not 'spooky action as a distance' to mutate execution state making asynchronous testing easy to support."
+      ],
+      "url": "https://github.com/bitcobblers/ZeUnit"
+    },
+    {
+      "name": "Open Source: Pull Request #789 Storyteller",
+      "startDate": "2020-01-14",
+      "description": "Storyteller is an integration testing framework with a GUI for test data entry and a nice HTML subsystem for generating detailed reports.  In my personal and professional work, I found that being able to quickly generate HTML reports on code execution enabled me to build integration tests that not only flag issues with the system but also greatly helped with debugging.  When I was confronted by the limitations of adding some filtering behavior into the generated reports, I decided to dig into the code to see how this can be addressed.  The following pull request is my resolution to this roadblock.",
+      "highlights": [
+        "Replaced hard coded functions to render static css and js content with a composable document builder.",
+        "Exposed the newly created document builder to enable side-loading additional content into the generated HTML reports.",
+        "Default behavior of the existing system remained unchanged by the pull request, expanding functionality without breaking backwards compatibility.",
+        "All additional code written has 100% unit tests coverage."
+      ],
+      "url": "https://github.com/storyteller/Storyteller/pull/789"
+    }
+  ],
   "work": [
     {
       "company": "Lyric",
@@ -89,7 +90,7 @@
       "endDate": "2024-04-03",
       "summary": "Responsible for a team maintaining a middle layer integration system that serves as an entry point for 70+ third party providers into the Travelers services ecosystem. The focus of our efforts was on reliability and observability.",
       "highlights": [
-        "Converted a two week per integration coding process into a collection of reusable components that reduced the effort to configuration.",        
+        "Converted a two week per integration coding process into a collection of reusable components that reduced the effort to configuration.",
         "Organized the work effort for the different integration types into trackable and repeatable units of work.",
         "Created a high level view that tracks the progress of integration work and promotion across the many levels environments"
       ],
@@ -100,38 +101,38 @@
       "position": "Sr. Software Engineer ",
       "website": "https://www.travelers.com/",
       "startDate": "2022-03-15",
-      "endDate": "2023-08-15", 
+      "endDate": "2023-08-15",
       "summary": "Focus on code quality and developer experience, I got to dig deep into development patterns that created code smells and enable an increase in team feature delivery velocity.",
       "highlights": [
         "Refactored an existing collection of angular components with a pattern of copy/pasting into generic components enabling the existing functionality with about 40% of the original code.",
         "Created a domain specific language to describe the behaviors of forms that the teams created as part of day to day work.",
         "Explored pathways to improve the deployment story as the company wants to shift to cloud deployment."
       ],
-      "tags": [ "Team Leadership", "Software Engineering"]
+      "tags": ["Team Leadership", "Software Engineering"]
     },
     {
       "company": "Change Healthcare",
       "position": "Sr. Software Engineer (Services Delivery)",
       "website": "https://www.changehealthcare.com/",
-      "startDate": "2018-01-15",   
-      "endDate": "2022-03-15",     
+      "startDate": "2018-01-15",
+      "endDate": "2022-03-15",
       "summary": "As a senior software engineer on the Services Delivery team, my responsibilities centered around the development of processes and tools to transition the team to a cloud and self-service model.",
-      "highlights": [        
+      "highlights": [
         "Spearheaded the design of customer deliverables for product migration to container based delivery & deployment.",
         "Mentored engineers working on specialized internal tooling for the Services Delivery team.",
         "Streamlined the customer configuration & release process changing it from 3 week manual effort to push button automation that consumes an existing customer intake sheet.",
-        "Designed and developed a bot that handled CI/CD automation driven by the Jira business workflow for customer release delivery.", 
+        "Designed and developed a bot that handled CI/CD automation driven by the Jira business workflow for customer release delivery.",
         "Implemented sanity checks and systems validity testing for release and deployments completed by automation.",
-        "Pushed to drive the team to better coding standards with code review, pair-programming and brown-bag sessions."        
+        "Pushed to drive the team to better coding standards with code review, pair-programming and brown-bag sessions."
       ],
-      "tags": [ "Team Leadership", "Software Engineering"]
+      "tags": ["Team Leadership", "Software Engineering"]
     },
     {
       "company": "Change Healthcare",
       "position": "Sr. Software Engineer (Product)",
       "website": "https://www.changehealthcare.com/",
-      "startDate": "2017-01-15",  
-      "endDate": "2018-01-15",    
+      "startDate": "2017-01-15",
+      "endDate": "2018-01-15",
       "summary": "As a software engineer on the product development team, my responsibilities include development of new workflows and features, bug fixes, and guiding the product team towards cleaner and simpler product delivery.",
       "highlights": [
         "Validated system integration modules against new versions of peripheral software products. In the process developed additional adapters to bridge version incompatibilities.",
@@ -139,21 +140,21 @@
         "Proposed and implemented improvements to the development, building and deployment of hotfix packages, streamlining the process from a complicated four-part configuration process into a single \"source of truth\" layout file.",
         "Worked as an intermediary between the production team and my old services team to create smoother product handoff with fewer breaking changes for process developed by services team."
       ],
-      "tags": [ "Software Engineering" ]
+      "tags": ["Software Engineering"]
     },
     {
       "company": "McKesson",
       "position": "Sr. Software Engineer (Services Delivery)",
       "website": "https://mckesson.com",
-      "startDate": "2011-09-15",  
-      "endDate": "2017-01-15",    
+      "startDate": "2011-09-15",
+      "endDate": "2017-01-15",
       "summary": "As a software engineer on a service delivery team, my responsibilities included implementation of special application requirements, packaging custom configuration, and general oversight of tech-related issues for each of our clients. As the senior engineer on the team, I was also responsible for setting the strategy for the team to solve less trivial problems.",
       "highlights": [
         "Developed a deployment strategy for customer-centric product overrides. Abstracted the complexity of WIX installer MSI behind a business problem-oriented Domain Specific Language (DSL). Automated the build process, leading to reduced build times and decreased user packaging errors.",
         "Oversaw design on several in-house, web-based software tools. In the process, reduced duplication efforts between tools by extracting core shared elements into a supporting McKesson-branded UX framework.",
         "Took charge of developer growth effort with regular \"brown bag\" sessions and knowledge transfer on different topics of interest."
       ],
-      "tags": [ "Software Engineering" ]
+      "tags": ["Software Engineering"]
     },
     {
       "company": "Korchek Technologies",
@@ -166,7 +167,7 @@
         "Worked on development of new products, including CareCheck 2 & 3 and Korchek Report System.",
         "Pioneering new web based product, Web Unit Archive, which leveraged client side data binding frameworks to provide a thick client user experience in a web browser.",
         "Involved in data conversion and automation scripts.  Creating conversion mappers for legacy binary data in efforts archive customer deprecated applications."
-      ]      
+      ]
     },
     {
       "company": "Cosential",
@@ -220,20 +221,14 @@
         "TypeScript",
         "Angular",
         "Bootstrap",
-        "TailwindCSS"        
+        "TailwindCSS"
       ]
     },
     {
       "name": "dotnet",
       "level": "Senior",
-      "keywords": [
-        "C#",        
-        "ASP.NET",        
-        "Orleans",
-        "Blazor",
-        "F# (beginner)"
-      ]
-    },    
+      "keywords": ["C#", "ASP.NET", "Orleans", "Blazor", "F# (beginner)"]
+    },
     {
       "name": "Testing",
       "level": "Intermediate",
@@ -241,7 +236,7 @@
         "Jasmine (JS)",
         "Protractor",
         "XUnit (.NET)",
-        "ZeUnit",        
+        "ZeUnit",
         "Fitness & SpecFlow",
         "Storyteller"
       ]
@@ -249,13 +244,7 @@
     {
       "name": "Cloud",
       "level": "Intermediate",
-      "keywords": [
-        "AWS",        
-        "Azure",
-        "Containers",
-        "Octopus",
-        "Terraform"
-      ]
+      "keywords": ["AWS", "Azure", "Containers", "Octopus", "Terraform"]
     },
     {
       "name": "Build Tools",
@@ -282,7 +271,7 @@
     {
       "name": "Sports",
       "keywords": [
-        "Unicyclist", 
+        "Unicyclist",
         "Mountain Biking",
         "Underwater Hockey",
         "Hiking & Camping",
