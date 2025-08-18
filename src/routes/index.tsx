@@ -23,7 +23,7 @@ export default component$(() => {
     filteredTimeline.value = filtered;
   });
 
-  const sortedTimeline = filteredTimeline.value.sort(function (a, b) {
+  const sortedTimeline = [...filteredTimeline.value].sort(function (a, b) {
     return a.startDate > b.startDate ? -1 : 1;
   });
 
