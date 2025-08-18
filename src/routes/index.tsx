@@ -4,10 +4,20 @@ import Page from "~/components/Page";
 import Present from "~/components/Present";
 import { timeline } from "~/components/resume";
 import FilterSystem from "~/components/FilterSystem";
+import CompactFilterBar from "~/components/CompactFilterBar";
+import { extractFilterData, getInitialFilterState, filterTimeline, type FilterState } from "~/components/filter-utils";
 import type { TimeLineEntryProperties } from "~/components/TimeLineEntryProperties";
 
 export default component$(() => {
   const filteredTimeline = useSignal<TimeLineEntryProperties[]>(timeline);
+  const filterData = extractFilterData(timeline);
+  const filterState = useSignal<FilterState>(getInitialFilterState(timeline));
+
+  const handleFilterChange = $((newFilters: FilterState) => {
+    filterState.value = newFilters;
+    const filtered = filterTimeline(timeline, newFilters);
+    filteredTimeline.value = filtered;
+  });
 
   const handleFilteredResults = $((results: TimeLineEntryProperties[]) => {
     filteredTimeline.value = results;
@@ -20,6 +30,11 @@ export default component$(() => {
   return (
     <>
       <Present />
+      <CompactFilterBar
+        filterData={filterData}
+        filterState={filterState.value}
+        onFilterChange={handleFilterChange}
+      />
       <FilterSystem
         timeline={timeline}
         onFilteredResults={handleFilteredResults}
