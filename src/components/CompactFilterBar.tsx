@@ -43,7 +43,6 @@ export default component$<CompactFilterBarProps>(
 
     // Get technologies that are available within the current date range
     const getAvailableTechnologies = () => {
-      const [startYear, endYear] = filterState.yearRange;
       // This would ideally filter technologies based on timeline entries within the date range
       // For now, return all technologies (this could be enhanced to be more sophisticated)
       return filterData.technologies;

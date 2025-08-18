@@ -3,7 +3,6 @@ import { type DocumentHead } from "@builder.io/qwik-city";
 import Page from "~/components/Page";
 import Present from "~/components/Present";
 import { timeline } from "~/components/resume";
-import FilterSystem from "~/components/FilterSystem";
 import CompactFilterBar from "~/components/CompactFilterBar";
 import { extractFilterData, getInitialFilterState, filterTimeline, type FilterState } from "~/components/filter-utils";
 import type { TimeLineEntryProperties } from "~/components/TimeLineEntryProperties";
@@ -19,10 +18,6 @@ export default component$(() => {
     filteredTimeline.value = filtered;
   });
 
-  const handleFilteredResults = $((results: TimeLineEntryProperties[]) => {
-    filteredTimeline.value = results;
-  });
-
   const sortedTimeline = filteredTimeline.value.sort(function (a, b) {
     return a.startDate > b.startDate ? -1 : 1;
   });
@@ -34,10 +29,6 @@ export default component$(() => {
         filterData={filterData}
         filterState={filterState.value}
         onFilterChange={handleFilterChange}
-      />
-      <FilterSystem
-        timeline={timeline}
-        onFilteredResults={handleFilteredResults}
       />
       {sortedTimeline.length > 0 ? (
         sortedTimeline.map((job, index) => (
