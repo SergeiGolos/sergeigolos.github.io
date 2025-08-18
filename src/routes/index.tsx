@@ -1,20 +1,56 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, $ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import Page from "~/components/Page";
 import Present from "~/components/Present";
 import { timeline } from "~/components/resume";
+import FilterSystem from "~/components/FilterSystem";
+import type { TimeLineEntryProperties } from "~/components/TimeLineEntryProperties";
 
 export default component$(() => {
+  const filteredTimeline = useSignal<TimeLineEntryProperties[]>(timeline);
+
+  const handleFilteredResults = $((results: TimeLineEntryProperties[]) => {
+    filteredTimeline.value = results;
+  });
+
+  const sortedTimeline = filteredTimeline.value.sort(function (a, b) {
+    return a.startDate > b.startDate ? -1 : 1;
+  });
+
   return (
     <>
       <Present />
-      {timeline
-        .sort(function (a, b) {
-          return a.startDate > b.startDate ? -1 : 1;
-        })
-        .map((job, index) => (
-          <Page {...job} key={index} />
-        ))}
+      <FilterSystem
+        timeline={timeline}
+        onFilteredResults={handleFilteredResults}
+      />
+      {sortedTimeline.length > 0 ? (
+        sortedTimeline.map((job, index) => (
+          <Page {...job} key={`${job.startDate}-${job.name}-${index}`} />
+        ))
+      ) : (
+        <div class="py-12 text-center">
+          <div class="text-gray-500 dark:text-gray-400">
+            <svg
+              class="mx-auto mb-4 h-12 w-12"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6M7 16l-4-4m0 0l4-4m-4 4h18"
+              />
+            </svg>
+            <h3 class="mb-2 text-lg font-medium">No results found</h3>
+            <p class="text-sm">
+              Try adjusting your filters to see more results.
+            </p>
+          </div>
+        </div>
+      )}
     </>
   );
 });

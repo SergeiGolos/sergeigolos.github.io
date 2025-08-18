@@ -48,7 +48,6 @@
   },
   "dependencies": {
     "@qwikest/icons": "^0.0.13",
-    "@rollup/rollup-win32-x64-msvc": "^4.46.2",
     "jsonresume-theme-relaxed": "^0.1.8",
     "resume-cli": "^3.0.8"
   }
