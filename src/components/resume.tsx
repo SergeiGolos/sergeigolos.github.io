@@ -1,15 +1,15 @@
 import type { TimeLineEntryProperties } from "./TimeLineEntryProperties";
 const result: any = import.meta.glob("/resume.json", {
+  query: "?raw",
   import: "default",
-  as: "raw",
-  eager: true, // defaults to false
+  eager: true,
 });
 
 const details: any = {};
 const loaded = import.meta.glob("/src/routes/history/**.mdx", {
+  query: "?raw",
   import: "default",
-  as: "raw",
-  eager: true, // defaults to false
+  eager: true,
 });
 
 for (const key in loaded) {
