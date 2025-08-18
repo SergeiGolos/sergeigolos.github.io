@@ -1,4 +1,4 @@
-import { component$, useSignal, $ } from "@builder.io/qwik";
+import { component$, useSignal, $, useComputed$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import Page from "~/components/Page";
 import Present from "~/components/Present";
@@ -23,8 +23,10 @@ export default component$(() => {
     filteredTimeline.value = filtered;
   });
 
-  const sortedTimeline = [...filteredTimeline.value].sort(function (a, b) {
-    return a.startDate > b.startDate ? -1 : 1;
+  const sortedTimeline = useComputed$(() => {
+    return [...filteredTimeline.value].sort(function (a, b) {
+      return a.startDate > b.startDate ? -1 : 1;
+    });
   });
 
   return (
@@ -35,8 +37,8 @@ export default component$(() => {
         filterState={filterState.value}
         onFilterChange={handleFilterChange}
       />
-      {sortedTimeline.length > 0 ? (
-        sortedTimeline.map((job, index) => (
+      {sortedTimeline.value.length > 0 ? (
+        sortedTimeline.value.map((job, index) => (
           <Page {...job} key={`${job.startDate}-${job.name}-${index}`} />
         ))
       ) : (
