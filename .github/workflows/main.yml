@@ -21,11 +21,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
       - name: NPM Dependencies
-        run: "npm install"
+        run: "PUPPETEER_SKIP_DOWNLOAD=true npm install"
 
       - name: Install JsonResume
         run: npm install resume-cli jsonresume-theme-relaxed
@@ -36,7 +36,7 @@ jobs:
       - name: Generate Static Site
         run: npm run build
 
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v4
         with:
           name: page
           path: dist
@@ -52,24 +52,16 @@ jobs:
       name: github-pages
       url: ${{steps.deployment.outputs.page_url}}
     steps:
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v4
         with:
           name: page
           path: .
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v4
       - name: Upload Pages
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: "."
       - name: Deploy Pages
         id: deployment
-        uses: actions/deploy-pages@v2
-  trigger:
-    runs-on: ubuntu-latest
-
-    steps:
-      - env:
-          GH_TOKEN: ${{ secrets.READMETOKEN }}
-        run: |
-          gh workflow run "Readme Template" --repo SergeiGolos/SergeiGolos
+        uses: actions/deploy-pages@v4

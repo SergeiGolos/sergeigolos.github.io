@@ -4,7 +4,12 @@ import Page from "~/components/Page";
 import Present from "~/components/Present";
 import { timeline } from "~/components/resume";
 import CompactFilterBar from "~/components/CompactFilterBar";
-import { extractFilterData, getInitialFilterState, filterTimeline, type FilterState } from "~/components/filter-utils";
+import {
+  extractFilterData,
+  getInitialFilterState,
+  filterTimeline,
+  type FilterState,
+} from "~/components/filter-utils";
 import type { TimeLineEntryProperties } from "~/components/TimeLineEntryProperties";
 
 export default component$(() => {

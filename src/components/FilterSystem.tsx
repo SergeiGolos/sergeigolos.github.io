@@ -1,4 +1,4 @@
-import { component$, useSignal, $ } from "@builder.io/qwik";
+import { component$, useSignal, $, type QRL } from "@builder.io/qwik";
 import {
   extractFilterData,
   getInitialFilterState,
@@ -14,7 +14,7 @@ import TimelineSliderFilters from "./TimelineSliderFilters";
 
 interface FilterSystemProps {
   timeline: TimeLineEntryProperties[];
-  onFilteredResults: (filteredTimeline: TimeLineEntryProperties[]) => void;
+  onFilteredResults: QRL<(filteredTimeline: TimeLineEntryProperties[]) => void>;
 }
 
 export type FilterMode = "dropdown" | "tags" | "sidebar" | "search" | "slider";

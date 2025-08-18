@@ -1,10 +1,10 @@
-import { component$, useSignal, $ } from "@builder.io/qwik";
+import { component$, useSignal, $, type QRL } from "@builder.io/qwik";
 import type { FilterData, FilterState } from "./filter-utils";
 
 interface SidebarFiltersProps {
   filterData: FilterData;
   filterState: FilterState;
-  onFilterChange: (newFilters: FilterState) => void;
+  onFilterChange: QRL<(newFilters: FilterState) => void>;
 }
 
 export default component$<SidebarFiltersProps>(

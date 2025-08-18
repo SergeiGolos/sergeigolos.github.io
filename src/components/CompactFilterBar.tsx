@@ -1,10 +1,10 @@
-import { component$, useSignal, $ } from "@builder.io/qwik";
+import { component$, useSignal, $, type QRL } from "@builder.io/qwik";
 import type { FilterData, FilterState } from "./filter-utils";
 
 interface CompactFilterBarProps {
   filterData: FilterData;
   filterState: FilterState;
-  onFilterChange: (newFilters: FilterState) => void;
+  onFilterChange: QRL<(newFilters: FilterState) => void>;
 }
 
 export default component$<CompactFilterBarProps>(
@@ -51,7 +51,7 @@ export default component$<CompactFilterBarProps>(
     const availableTechnologies = getAvailableTechnologies();
     const selectedTechnologies = filterState.technologies;
     const unselectedTechnologies = availableTechnologies.filter(
-      (tech) => !selectedTechnologies.includes(tech)
+      (tech) => !selectedTechnologies.includes(tech),
     );
 
     return (
@@ -63,33 +63,59 @@ export default component$<CompactFilterBarProps>(
               showYearSelector.value = !showYearSelector.value;
               showTagSelector.value = false;
             }}
-            class="group flex items-center gap-1 p-2 font-semibold text-white/50 hover:text-white/90 lg:text-gray-500 lg:hover:text-gray-900 lg:dark:text-white/50 lg:dark:hover:text-white/90 transition-colors"
+            class="group flex items-center gap-1 p-2 font-semibold text-white/50 transition-colors hover:text-white/90 lg:text-gray-500 lg:hover:text-gray-900 lg:dark:text-white/50 lg:dark:hover:text-white/90"
             title="Click to adjust date range"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            <svg
+              class="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
             </svg>
-            <span class="text-xs font-medium">{filterState.yearRange[0]} - {filterState.yearRange[1]}</span>
-            <svg class={`w-3 h-3 transform transition-transform ${showYearSelector.value ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            <span class="text-xs font-medium">
+              {filterState.yearRange[0]} - {filterState.yearRange[1]}
+            </span>
+            <svg
+              class={`h-3 w-3 transform transition-transform ${showYearSelector.value ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
 
           {/* Year Range Selector Dropdown */}
           {showYearSelector.value && (
-            <div class="absolute top-full mt-2 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 p-4 min-w-80 z-50">
+            <div class="absolute right-0 top-full z-50 mt-2 min-w-80 rounded-lg border border-gray-200 bg-white p-4 shadow-xl dark:border-gray-700 dark:bg-gray-800">
               <div class="mb-3">
-                <h4 class="text-sm font-medium text-gray-900 dark:text-white mb-2">Date Range</h4>
-                <div class="flex items-center gap-2 mb-3">
-                  <span class="text-xs text-gray-500 dark:text-gray-400">{filterState.yearRange[0]}</span>
-                  <div class="flex-1 relative">
+                <h4 class="mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Date Range
+                </h4>
+                <div class="mb-3 flex items-center gap-2">
+                  <span class="text-xs text-gray-500 dark:text-gray-400">
+                    {filterState.yearRange[0]}
+                  </span>
+                  <div class="relative flex-1">
                     <input
                       type="range"
                       min={minYear}
                       max={maxYear}
                       value={filterState.yearRange[0]}
                       onInput$={(e) => handleRangeChange(e, true)}
-                      class="absolute w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 z-10"
+                      class="absolute z-10 h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700"
                       style="background: transparent;"
                     />
                     <input
@@ -98,13 +124,16 @@ export default component$<CompactFilterBarProps>(
                       max={maxYear}
                       value={filterState.yearRange[1]}
                       onInput$={(e) => handleRangeChange(e, false)}
-                      class="absolute w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                      class="absolute h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700"
                     />
                   </div>
-                  <span class="text-xs text-gray-500 dark:text-gray-400">{filterState.yearRange[1]}</span>
+                  <span class="text-xs text-gray-500 dark:text-gray-400">
+                    {filterState.yearRange[1]}
+                  </span>
                 </div>
-                <div class="text-xs text-gray-500 dark:text-gray-400 text-center">
-                  {filterState.yearRange[1] - filterState.yearRange[0] + 1} years selected
+                <div class="text-center text-xs text-gray-500 dark:text-gray-400">
+                  {filterState.yearRange[1] - filterState.yearRange[0] + 1}{" "}
+                  years selected
                 </div>
               </div>
             </div>
@@ -118,17 +147,27 @@ export default component$<CompactFilterBarProps>(
               <button
                 key={tech}
                 onClick$={() => removeTechnology(tech)}
-                class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium bg-blue-600/90 text-white rounded-full hover:bg-blue-700/90 transition-colors backdrop-blur-sm"
+                class="inline-flex items-center gap-1 rounded-full bg-blue-600/90 px-2 py-0.5 text-xs font-medium text-white backdrop-blur-sm transition-colors hover:bg-blue-700/90"
                 title={`Remove ${tech} filter`}
               >
-                <span class="truncate max-w-16">{tech}</span>
-                <svg class="w-2 h-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                <span class="max-w-16 truncate">{tech}</span>
+                <svg
+                  class="h-2 w-2 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             ))}
             {selectedTechnologies.length > 3 && (
-              <span class="text-xs text-white/70 lg:text-gray-500 dark:text-gray-400 font-medium">
+              <span class="text-xs font-medium text-white/70 dark:text-gray-400 lg:text-gray-500">
                 +{selectedTechnologies.length - 3}
               </span>
             )}
@@ -142,18 +181,30 @@ export default component$<CompactFilterBarProps>(
               showTagSelector.value = !showTagSelector.value;
               showYearSelector.value = false;
             }}
-            class="group flex items-center justify-center p-2 font-semibold text-white/50 hover:text-white/90 lg:text-gray-500 lg:hover:text-gray-900 lg:dark:text-white/50 lg:dark:hover:text-white/90 transition-colors"
+            class="group flex items-center justify-center p-2 font-semibold text-white/50 transition-colors hover:text-white/90 lg:text-gray-500 lg:hover:text-gray-900 lg:dark:text-white/50 lg:dark:hover:text-white/90"
             title="Add technology filters"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            <svg
+              class="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 4v16m8-8H4"
+              />
             </svg>
           </button>
 
           {/* Tag Selector Dropdown */}
           {showTagSelector.value && (
-            <div class="absolute top-full mt-2 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 p-4 min-w-64 max-w-80 z-50">
-              <h4 class="text-sm font-medium text-gray-900 dark:text-white mb-3">Add Technology Tags</h4>
+            <div class="absolute right-0 top-full z-50 mt-2 min-w-64 max-w-80 rounded-lg border border-gray-200 bg-white p-4 shadow-xl dark:border-gray-700 dark:bg-gray-800">
+              <h4 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
+                Add Technology Tags
+              </h4>
               <div class="max-h-48 overflow-y-auto">
                 <div class="flex flex-wrap gap-2">
                   {unselectedTechnologies.length > 0 ? (
@@ -161,7 +212,7 @@ export default component$<CompactFilterBarProps>(
                       <button
                         key={tech}
                         onClick$={() => toggleTechnology(tech)}
-                        class="px-3 py-1.5 text-xs font-medium border border-gray-300 bg-white text-gray-700 rounded-full hover:bg-gray-50 hover:border-blue-300 transition-all dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:border-blue-600"
+                        class="rounded-full border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 transition-all hover:border-blue-300 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-blue-600 dark:hover:bg-gray-700"
                       >
                         {tech}
                       </button>
@@ -179,8 +230,8 @@ export default component$<CompactFilterBarProps>(
 
         {/* Click outside to close dropdowns */}
         {(showYearSelector.value || showTagSelector.value) && (
-          <div 
-            class="fixed inset-0 z-40 bg-transparent" 
+          <div
+            class="fixed inset-0 z-40 bg-transparent"
             onClick$={() => {
               showYearSelector.value = false;
               showTagSelector.value = false;
@@ -216,5 +267,5 @@ export default component$<CompactFilterBarProps>(
         </style>
       </div>
     );
-  }
+  },
 );
