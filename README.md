@@ -104,6 +104,7 @@ The site employs a fully automated deployment pipeline:
 4. **Site Build**: Complete static site generation
 5. **GitHub Pages Deploy**: Automatic deployment to custom domain
 6. **Performance Monitoring**: Built-in analytics and performance tracking
+7. **Profile README Sync**: When the `PROFILE_REPO_PAT` secret is configured, the workflow copies `template/README.md` into the [`SergeiGolos/SergeiGolos`](https://github.com/SergeiGolos/SergeiGolos) profile repository so the GitHub profile stays in sync with this portfolio.
 
 ## 📊 Performance Metrics
 
