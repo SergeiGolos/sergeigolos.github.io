@@ -69,21 +69,28 @@ jobs:
   publish-profile-readme:
     runs-on: ubuntu-latest
     needs: build
-    if: ${{ secrets.PROFILE_REPO_PAT != '' }}
+    env:
+      PROFILE_REPO_PAT: ${{ secrets.PROFILE_REPO_PAT }}
     steps:
       - name: Checkout portfolio source
         uses: actions/checkout@v4
         with:
           path: site
 
+      - name: Skip profile publish when secret is missing
+        if: ${{ env.PROFILE_REPO_PAT == '' }}
+        run: echo "PROFILE_REPO_PAT is not set. Skipping profile README publish."
+
       - name: Checkout profile repository
+        if: ${{ env.PROFILE_REPO_PAT != '' }}
         uses: actions/checkout@v4
         with:
           repository: SergeiGolos/SergeiGolos
-          token: ${{ secrets.PROFILE_REPO_PAT }}
+          token: ${{ env.PROFILE_REPO_PAT }}
           path: profile
 
       - name: Sync profile README
+        if: ${{ env.PROFILE_REPO_PAT != '' }}
         run: |
           cp site/template/README.md profile/README.md
           cd profile
