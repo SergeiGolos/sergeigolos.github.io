@@ -55,7 +55,7 @@ export default component$<CompactFilterBarProps>(
     );
 
     return (
-      <div class="fixed right-24 top-3 z-50 flex items-center gap-2">
+      <div class="fixed top-3 right-24 z-50 flex items-center gap-2">
         {/* Compact Year Range Display/Selector */}
         <div class="relative">
           <button
@@ -99,7 +99,7 @@ export default component$<CompactFilterBarProps>(
 
           {/* Year Range Selector Dropdown */}
           {showYearSelector.value && (
-            <div class="absolute right-0 top-full z-50 mt-2 min-w-80 rounded-lg border border-gray-200 bg-white p-4 shadow-xl dark:border-gray-700 dark:bg-gray-800">
+            <div class="absolute top-full right-0 z-50 mt-2 min-w-80 rounded-lg border border-gray-200 bg-white p-4 shadow-xl dark:border-gray-700 dark:bg-gray-800">
               <div class="mb-3">
                 <h4 class="mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Date Range
@@ -167,7 +167,7 @@ export default component$<CompactFilterBarProps>(
               </button>
             ))}
             {selectedTechnologies.length > 3 && (
-              <span class="text-xs font-medium text-white/70 dark:text-gray-400 lg:text-gray-500">
+              <span class="text-xs font-medium text-white/70 lg:text-gray-500 dark:text-gray-400">
                 +{selectedTechnologies.length - 3}
               </span>
             )}
@@ -201,7 +201,7 @@ export default component$<CompactFilterBarProps>(
 
           {/* Tag Selector Dropdown */}
           {showTagSelector.value && (
-            <div class="absolute right-0 top-full z-50 mt-2 min-w-64 max-w-80 rounded-lg border border-gray-200 bg-white p-4 shadow-xl dark:border-gray-700 dark:bg-gray-800">
+            <div class="absolute top-full right-0 z-50 mt-2 max-w-80 min-w-64 rounded-lg border border-gray-200 bg-white p-4 shadow-xl dark:border-gray-700 dark:bg-gray-800">
               <h4 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
                 Add Technology Tags
               </h4>

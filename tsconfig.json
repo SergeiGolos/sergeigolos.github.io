@@ -10,6 +10,7 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
+    "ignoreDeprecations": "6.0",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "incremental": true,
@@ -21,6 +22,6 @@
       "~/*": ["./src/*"]
     }
   },
-  "files": ["./.eslintrc.cjs", "./src/components/TimeLineEntryProperties.tsx"],
+  "files": ["./src/components/TimeLineEntryProperties.tsx"],
   "include": ["src", "./*.d.ts", "./*.config.ts", "resume.vite.plugin.ts"]
 }

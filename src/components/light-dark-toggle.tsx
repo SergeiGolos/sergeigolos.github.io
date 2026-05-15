@@ -5,7 +5,7 @@ export default component$(() => {
   return (
     <button
       type="button"
-      class="group absolute right-4 top-4 z-50 -m-2.5 p-2.5"
+      class="group absolute top-4 right-4 z-50 -m-2.5 p-2.5"
       onClick$={$(() => {
         const theme = document.documentElement.className;
         if (theme === "light") {

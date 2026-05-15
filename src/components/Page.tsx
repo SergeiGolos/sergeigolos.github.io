@@ -20,9 +20,9 @@ export default component$((props: TimeLineEntryProperties) => {
               data-mdx-content="true"
             >
               <div class="[&amp;+*]:mt-8 relative mt-8 overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-900">
-                <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10 dark:ring-white/10"></div>
+                <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-gray-900/10 ring-inset dark:ring-white/10"></div>
               </div>
-              <h3 class="lg:gap-1e flex gap-1  text-xl text-blue-400">
+              <h3 class="lg:gap-1e flex gap-1 text-xl text-blue-400">
                 <span>{props.name}</span>
                 <span>@</span>
                 <Link target="blank" href={props.url}>
@@ -39,7 +39,7 @@ export default component$((props: TimeLineEntryProperties) => {
           </div>
         </div>
         <header class="relative mt-2 sm:mt-8 xl:mb-0">
-          <div class="pointer-events-none absolute left-[max(-0.5rem,calc(50%-18.625rem))] top-0 z-50 flex h-4 items-center justify-end gap-x-2 lg:left-0 lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] xl:h-8">
+          <div class="pointer-events-none absolute top-0 left-[max(-0.5rem,calc(50%-18.625rem))] z-50 flex h-4 items-center justify-end gap-x-2 lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:left-0 lg:min-w-[32rem] xl:h-8">
             <time
               data-datetime={date}
               class="xl:text-2xs/4 hidden xl:pointer-events-auto xl:block xl:font-medium xl:text-white/50"
@@ -54,7 +54,7 @@ export default component$((props: TimeLineEntryProperties) => {
                 <div class="flex">
                   <time
                     data-datetime={date}
-                    class="text-2xs/4 font-medium text-gray-500 dark:text-white/50 xl:hidden"
+                    class="text-2xs/4 font-medium text-gray-500 xl:hidden dark:text-white/50"
                   >
                     {dateString}
                   </time>
