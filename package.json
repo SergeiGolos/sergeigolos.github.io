@@ -43,7 +43,7 @@
     "tailwindcss": "^4.3.0",
     "typescript": "6.0.3",
     "undici": "*",
-    "vite": "^8.0.13",
+    "vite": "^7.3.3",
     "vite-tsconfig-paths": "^6.1.1"
   },
   "dependencies": {
