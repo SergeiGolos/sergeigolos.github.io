@@ -65,3 +65,34 @@ jobs:
       - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  publish-profile-readme:
+    runs-on: ubuntu-latest
+    needs: build
+    if: ${{ secrets.PROFILE_REPO_PAT != '' }}
+    steps:
+      - name: Checkout portfolio source
+        uses: actions/checkout@v4
+        with:
+          path: site
+
+      - name: Checkout profile repository
+        uses: actions/checkout@v4
+        with:
+          repository: SergeiGolos/SergeiGolos
+          token: ${{ secrets.PROFILE_REPO_PAT }}
+          path: profile
+
+      - name: Sync profile README
+        run: |
+          cp site/template/README.md profile/README.md
+          cd profile
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No README changes to publish."
+            exit 0
+          fi
+          git add README.md
+          git commit -m "chore: sync profile README from portfolio"
+          git push
