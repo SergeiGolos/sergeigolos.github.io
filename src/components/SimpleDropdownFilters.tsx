@@ -111,7 +111,7 @@ export default component$<SimpleDropdownFiltersProps>(
                 <select
                   value={filterState.types[0] || ""}
                   onChange$={handleTypeChange}
-                  class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                  class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-white"
                 >
                   <option value="">All Types</option>
                   {filterData.types.map((type) => (
@@ -130,7 +130,7 @@ export default component$<SimpleDropdownFiltersProps>(
                 <select
                   value={filterState.companies[0] || ""}
                   onChange$={handleCompanyChange}
-                  class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                  class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-white"
                 >
                   <option value="">All Companies</option>
                   {filterData.companies.map((company) => (
@@ -149,7 +149,7 @@ export default component$<SimpleDropdownFiltersProps>(
                 <select
                   value={filterState.yearRange[0]}
                   onChange$={$((e: Event) => handleYearRangeChange(e, true))}
-                  class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                  class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-white"
                 >
                   {filterData.years
                     .slice()
@@ -170,7 +170,7 @@ export default component$<SimpleDropdownFiltersProps>(
                 <select
                   value={filterState.yearRange[1]}
                   onChange$={$((e: Event) => handleYearRangeChange(e, false))}
-                  class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+                  class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-white"
                 >
                   {filterData.years.map((year) => (
                     <option key={year} value={year}>

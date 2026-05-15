@@ -122,7 +122,7 @@ export default component$<FilterSystemProps>(
                   class={`rounded-lg border-2 p-3 text-left transition-all duration-200 ${
                     currentMode.value === mode
                       ? "scale-105 transform border-blue-500 bg-blue-100 shadow-md dark:bg-blue-900/50"
-                      : "hover:scale-102 border-gray-200 bg-white hover:border-blue-300 dark:border-gray-600 dark:bg-gray-800 dark:hover:border-blue-600"
+                      : "border-gray-200 bg-white hover:scale-102 hover:border-blue-300 dark:border-gray-600 dark:bg-gray-800 dark:hover:border-blue-600"
                   }`}
                 >
                   <div class="mb-1 flex items-center">

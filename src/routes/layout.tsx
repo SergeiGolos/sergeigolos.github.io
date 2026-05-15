@@ -33,12 +33,9 @@ export default component$(() => {
       <main class="flex min-h-full flex-col bg-white dark:bg-gray-950">
         <div class="relative flex-none overflow-hidden bg-gray-900 px-6 lg:fixed lg:inset-0 lg:flex lg:bg-transparent lg:px-0">
           <Glow />
-          <div
-            class="relative flex w-full lg:pointer-events-auto lg:z-50        
-        lg:mr-[calc(max(2rem,50%-38rem))] lg:min-w-[32rem] lg:overflow-visible lg:pl-2"
-          >
+          <div class="relative flex w-full lg:pointer-events-auto lg:z-50 lg:mr-[calc(max(2rem,50%-38rem))] lg:min-w-[32rem] lg:overflow-visible lg:pl-2">
             <div class="mx-auto max-w-lg md:mx-64 lg:mx-[calc(max(2rem,50%-32rem))] lg:flex lg:w-96 lg:max-w-none lg:flex-col lg:before:flex-1 lg:before:pt-6">
-              <div class="pb-16 pt-20 sm:pb-20 sm:pt-32 lg:py-20">
+              <div class="pt-20 pb-16 sm:pt-32 sm:pb-20 lg:py-20">
                 <div class="relative content-center">
                   <ProfileIntro>
                     <span class="text-sky-300">software enthusiast</span> and{" "}

@@ -60,7 +60,7 @@ export default component$<SidebarFiltersProps>(
     return (
       <>
         {/* Filter Toggle Button */}
-        <div class="fixed right-4 top-20 z-50 lg:hidden">
+        <div class="fixed top-20 right-4 z-50 lg:hidden">
           <button
             onClick$={() => {
               sidebarOpen.value = true;
@@ -84,7 +84,7 @@ export default component$<SidebarFiltersProps>(
         </div>
 
         {/* Desktop Sidebar */}
-        <div class="fixed left-0 top-0 z-40 hidden h-full w-80 overflow-y-auto border-r border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900 lg:block">
+        <div class="fixed top-0 left-0 z-40 hidden h-full w-80 overflow-y-auto border-r border-gray-200 bg-white lg:block dark:border-gray-700 dark:bg-gray-900">
           <div class="p-6">
             {/* Header */}
             <div class="mb-6 flex items-center justify-between">
@@ -111,7 +111,7 @@ export default component$<SidebarFiltersProps>(
                 value={filterState.searchText}
                 onInput$={handleSearchChange}
                 placeholder="Search timeline entries..."
-                class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+                class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
               />
             </div>
 
@@ -129,7 +129,7 @@ export default component$<SidebarFiltersProps>(
                       onChange$={() => toggleType(type)}
                       class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-blue-600"
                     />
-                    <span class="ml-3 text-sm capitalize text-gray-700 dark:text-gray-300">
+                    <span class="ml-3 text-sm text-gray-700 capitalize dark:text-gray-300">
                       {type}
                     </span>
                   </label>
@@ -188,14 +188,14 @@ export default component$<SidebarFiltersProps>(
           <div class="fixed inset-0 z-50 lg:hidden">
             {/* Backdrop */}
             <div
-              class="fixed inset-0 bg-black bg-opacity-50"
+              class="bg-opacity-50 fixed inset-0 bg-black"
               onClick$={() => {
                 sidebarOpen.value = false;
               }}
             ></div>
 
             {/* Sidebar */}
-            <div class="fixed right-0 top-0 h-full w-80 overflow-y-auto bg-white shadow-xl dark:bg-gray-900">
+            <div class="fixed top-0 right-0 h-full w-80 overflow-y-auto bg-white shadow-xl dark:bg-gray-900">
               <div class="p-6">
                 {/* Header */}
                 <div class="mb-6 flex items-center justify-between">
@@ -236,7 +236,7 @@ export default component$<SidebarFiltersProps>(
                       value={filterState.searchText}
                       onInput$={handleSearchChange}
                       placeholder="Search timeline entries..."
-                      class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+                      class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
                     />
                   </div>
 
@@ -254,7 +254,7 @@ export default component$<SidebarFiltersProps>(
                             onChange$={() => toggleType(type)}
                             class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-blue-600"
                           />
-                          <span class="ml-3 text-sm capitalize text-gray-700 dark:text-gray-300">
+                          <span class="ml-3 text-sm text-gray-700 capitalize dark:text-gray-300">
                             {type}
                           </span>
                         </label>

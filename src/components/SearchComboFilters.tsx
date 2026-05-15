@@ -161,7 +161,7 @@ export default component$<SearchComboFiltersProps>(
                 onInput$={handleSearchChange}
                 onFocus$={handleSearchFocus}
                 onBlur$={handleSearchBlur}
-                class="w-full rounded-lg border border-gray-300 bg-white py-3 pl-10 pr-4 text-sm text-gray-900 placeholder-gray-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+                class="w-full rounded-lg border border-gray-300 bg-white py-3 pr-4 pl-10 text-sm text-gray-900 placeholder-gray-500 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
               />
               <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 <svg
@@ -185,7 +185,7 @@ export default component$<SearchComboFiltersProps>(
               <div class="absolute z-10 mt-1 max-h-64 w-full overflow-y-auto rounded-lg border border-gray-200 bg-white shadow-lg dark:border-gray-600 dark:bg-gray-800">
                 {suggestions.types.length > 0 && (
                   <div class="border-b border-gray-200 p-3 dark:border-gray-600">
-                    <h4 class="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    <h4 class="mb-2 text-xs font-semibold tracking-wide text-gray-500 uppercase dark:text-gray-400">
                       Entry Types
                     </h4>
                     <div class="space-y-1">
@@ -195,7 +195,7 @@ export default component$<SearchComboFiltersProps>(
                           onClick$={() => addFilterChip("type", type)}
                           class="flex w-full items-center rounded px-2 py-1.5 text-sm text-gray-700 transition-colors hover:bg-blue-50 dark:text-gray-300 dark:hover:bg-blue-900/20"
                         >
-                          <span class="mr-2 rounded bg-blue-100 px-2 py-0.5 text-xs capitalize text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                          <span class="mr-2 rounded bg-blue-100 px-2 py-0.5 text-xs text-blue-800 capitalize dark:bg-blue-900 dark:text-blue-200">
                             {type}
                           </span>
                           Add as filter
@@ -207,7 +207,7 @@ export default component$<SearchComboFiltersProps>(
 
                 {suggestions.companies.length > 0 && (
                   <div class="border-b border-gray-200 p-3 dark:border-gray-600">
-                    <h4 class="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    <h4 class="mb-2 text-xs font-semibold tracking-wide text-gray-500 uppercase dark:text-gray-400">
                       Companies
                     </h4>
                     <div class="space-y-1">
@@ -229,7 +229,7 @@ export default component$<SearchComboFiltersProps>(
 
                 {suggestions.technologies.length > 0 && (
                   <div class="p-3">
-                    <h4 class="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    <h4 class="mb-2 text-xs font-semibold tracking-wide text-gray-500 uppercase dark:text-gray-400">
                       Technologies
                     </h4>
                     <div class="space-y-1">
