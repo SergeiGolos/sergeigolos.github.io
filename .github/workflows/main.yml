@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     env:
-      PROFILE_REPO_PAT: ${{ secrets.PROFILE_REPO_PAT }}
+      PROFILE_REPO_PAT: ${{ secrets.READMETOKEN }}
     steps:
       - name: Checkout portfolio source
         uses: actions/checkout@v4
