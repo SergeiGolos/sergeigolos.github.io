@@ -9,6 +9,8 @@ import { type DocumentHead } from "@builder.io/qwik-city";
 import Page from "~/components/Page";
 import Present from "~/components/Present";
 import { timeline } from "~/components/resume";
+import TimelineBreak from "~/components/TimelineBreak";
+import type { TimeLineEntryProperties } from "~/components/TimeLineEntryProperties";
 import TimelineSearch from "~/components/TimelineSearch";
 import {
   extractFilterData,
@@ -18,6 +20,32 @@ import {
   filtersToSearchParams,
   type FilterState,
 } from "~/components/filter-utils";
+
+// One stretch of the feed: either a visible entry or a maximal run of
+// entries the active filters hide, rendered as a break marker.
+type TimelineSegment =
+  | { kind: "entry"; entry: TimeLineEntryProperties }
+  | { kind: "gap"; count: number; span: string };
+
+// "Mar 2022" — dates in resume.json are ISO date-only strings, so format in
+// UTC to keep the month from rolling back in local timezones.
+const monthYear = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+// A hidden run's own span: the oldest hidden entry's start through the
+// newest hidden entry's end ("Present" while that entry has no end date).
+function hiddenRunSpan(run: TimeLineEntryProperties[]): string {
+  const newest = run[0];
+  const oldest = run[run.length - 1];
+  const start = monthYear.format(new Date(oldest.startDate));
+  const end = newest.endDate
+    ? monthYear.format(new Date(newest.endDate))
+    : "Present";
+  return `${start} – ${end}`;
+}
 
 export default component$(() => {
   const filterData = extractFilterData(timeline);
@@ -53,6 +81,34 @@ export default component$(() => {
     });
   });
 
+  // The full timeline in display order, split into visible entries and the
+  // runs of entries the filters hide, so each hidden run can be marked with
+  // a break in the feed instead of silently vanishing.
+  const segments = useComputed$<TimelineSegment[]>(() => {
+    const visible = new Set(sortedTimeline.value);
+    const full = [...timeline].sort(function (a, b) {
+      return a.startDate > b.startDate ? -1 : 1;
+    });
+    const result: TimelineSegment[] = [];
+    let run: TimeLineEntryProperties[] = [];
+    const flushRun = () => {
+      if (run.length > 0) {
+        result.push({ kind: "gap", count: run.length, span: hiddenRunSpan(run) });
+        run = [];
+      }
+    };
+    for (const entry of full) {
+      if (visible.has(entry)) {
+        flushRun();
+        result.push({ kind: "entry", entry });
+      } else {
+        run.push(entry);
+      }
+    }
+    flushRun();
+    return result;
+  });
+
   return (
     <>
       <Present />
@@ -65,9 +121,21 @@ export default component$(() => {
         onClearFilters={clearFilters}
       />
       {sortedTimeline.value.length > 0 ? (
-        sortedTimeline.value.map((job, index) => (
-          <Page {...job} key={`${job.startDate}-${job.name}-${index}`} />
-        ))
+        segments.value.map((segment, index) =>
+          segment.kind === "entry" ? (
+            <Page
+              {...segment.entry}
+              key={`${segment.entry.startDate}-${segment.entry.name}-${index}`}
+            />
+          ) : (
+            <TimelineBreak
+              key={`gap-${index}`}
+              count={segment.count}
+              span={segment.span}
+              onClear$={clearFilters}
+            />
+          ),
+        )
       ) : (
         <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
           <div class="lg:ml-96 lg:flex lg:w-full lg:justify-end lg:pl-32">
