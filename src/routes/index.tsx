@@ -9,7 +9,7 @@ import { type DocumentHead } from "@builder.io/qwik-city";
 import Page from "~/components/Page";
 import Present from "~/components/Present";
 import { timeline } from "~/components/resume";
-import TimelineToolbar from "~/components/TimelineToolbar";
+import TimelineSearch from "~/components/TimelineSearch";
 import {
   extractFilterData,
   getInitialFilterState,
@@ -56,10 +56,9 @@ export default component$(() => {
   return (
     <>
       <Present />
-      <TimelineToolbar
+      <TimelineSearch
         filterData={filterData}
         filterState={filterState.value}
-        timeline={timeline}
         resultCount={sortedTimeline.value.length}
         totalCount={timeline.length}
         onFilterChange={handleFilterChange}
