@@ -1,8 +1,8 @@
 {
-  "name": "my-qwik-basic-starter",
-  "description": "Demo App with Routing built-in (recommended)",
+  "name": "sergeigolos.github.io",
+  "description": "Sergei Golos \u2014 personal timeline/resume site (Qwik + JSON Resume)",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22"
   },
   "private": true,
   "trustedDependencies": [
@@ -23,35 +23,36 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "build.resume": "node scripts/generate-resume-pdf.mjs"
   },
   "devDependencies": {
-    "@builder.io/partytown": "^0.10.3",
-    "@builder.io/qwik": "^1.19.2",
-    "@builder.io/qwik-city": "^1.19.2",
-    "@eslint/eslintrc": "^3.3.5",
+    "@builder.io/qwik": "^1.20.3",
+    "@builder.io/qwik-city": "^1.20.3",
+    "@eslint/eslintrc": "^3.3.7",
     "@eslint/js": "^10.0.1",
-    "@tailwindcss/postcss": "^4.3.0",
+    "@qwik.dev/partytown": "^1.0.3",
+    "@tailwindcss/postcss": "^4.3.4",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^25.8.0",
-    "@typescript-eslint/eslint-plugin": "^8.59.3",
-    "@typescript-eslint/parser": "^8.59.3",
+    "@types/node": "^26.6.6",
+    "@typescript-eslint/eslint-plugin": "^8.72.1",
+    "@typescript-eslint/parser": "^8.72.1",
     "autoprefixer": "^10.5.0",
-    "eslint": "^10.3.0",
-    "eslint-plugin-qwik": "^1.19.2",
+    "eslint": "^10.14.0",
+    "eslint-plugin-qwik": "^1.20.3",
+    "jsonresume-theme-relaxed": "^0.2.1",
     "postcss": "^8.5.14",
-    "prettier": "^3.8.3",
-    "prettier-plugin-tailwindcss": "^0.8.0",
-    "sharp": "^0.34.5",
-    "tailwindcss": "^4.3.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "puppeteer": "^25.16.0",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.4",
     "typescript": "6.0.3",
-    "undici": "*",
-    "vite": "^7.3.3",
+    "undici": "^8.12.3",
+    "vite": "^7.3.7",
     "vite-tsconfig-paths": "^6.1.1"
   },
   "dependencies": {
-    "@qwikest/icons": "^0.0.13",
-    "jsonresume-theme-relaxed": "^0.2.1",
-    "resume-cli": "^3.1.2"
+    "@qwikest/icons": "^0.0.13"
   }
 }

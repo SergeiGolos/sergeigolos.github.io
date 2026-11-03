@@ -1,7 +1,7 @@
 import {
   partytownSnippet,
   type PartytownConfig,
-} from "@builder.io/partytown/integration";
+} from "@qwik.dev/partytown/integration";
 
 /**
  * Props for `<QwikPartytown/>`, which extends the Partytown Config.
