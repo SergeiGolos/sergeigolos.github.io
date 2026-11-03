@@ -3,7 +3,7 @@
     "name": "Sergei Golos",
     "image": "https://sergeigolos.github.io/profile.webp",
     "webImage": "profile.webp",
-    "label": "Sr. Software Engineer",
+    "label": "Staff Software Engineer",
     "email": "sergei.golos@gmail.com",
     "summary": "Throughout my 20-year software development career, I have gained extensive experience in various roles. I have worked on front-end JavaScript, developed back-end services, built mobile applications, implemented Continuous Integration systems, optimized product delivery and deployment using Windows Installer, and formulated architectural strategies for internal tools. This diverse range of software practices has allowed me to identify cross-disciplinary patterns and develop a comprehensive understanding of the software development process, making me a well-rounded engineer. This breadth of experience has left me well equipped with the skills to effectively mentor individuals and lead teams.",
     "location": {
@@ -43,7 +43,13 @@
         "Deep dive into the inner working of language construction.  The project breaks down markdown strings into tokens, creates a syntax tree with parser and walks the tree with language interpreter to generate a collection of timers.",
         "Chrome-cast enabled controls for timers, allowing old TVs become low cost barrier to entry for a configurable home workout timer."
       ],
-      "url": "https://github.com/bitcobblers/timers-ninja"
+      "url": "https://github.com/bitcobblers/timers-ninja",
+      "tags": [
+        "DSL",
+        "TypeScript",
+        "React",
+        "Open Source"
+      ]
     },
     {
       "name": "Open Source: Founder ZeUnit",
@@ -54,7 +60,12 @@
         "Built on the principles of progressive enhancement allowing users to start with simple tests and scale the complexity for system wide integration.",
         "Test functions return the results, not 'spooky action as a distance' to mutate execution state making asynchronous testing easy to support."
       ],
-      "url": "https://github.com/bitcobblers/ZeUnit"
+      "url": "https://github.com/bitcobblers/ZeUnit",
+      "tags": [
+        "Testing",
+        ".NET",
+        "Open Source"
+      ]
     },
     {
       "name": "Open Source: Pull Request #789 Storyteller",
@@ -66,7 +77,12 @@
         "Default behavior of the existing system remained unchanged by the pull request, expanding functionality without breaking backwards compatibility.",
         "All additional code written has 100% unit tests coverage."
       ],
-      "url": "https://github.com/storyteller/Storyteller/pull/789"
+      "url": "https://github.com/storyteller/Storyteller/pull/789",
+      "tags": [
+        "Testing",
+        "Open Source",
+        ".NET"
+      ]
     }
   ],
   "work": [
@@ -80,6 +96,12 @@
         "A 90-day learning plan for hitting the ground running with a focus relationship and consensus building. ",
         "Proactively seek out knowledge and training resources to enhance my understanding of business problems facing the company.",
         "Create a collaborative team environment that encourages members to thrive and to learn and grow together."
+      ],
+      "tags": [
+        "Cloud",
+        "Migration",
+        "Platform",
+        "Leadership"
       ]
     },
     {
@@ -94,7 +116,12 @@
         "Organized the work effort for the different integration types into trackable and repeatable units of work.",
         "Created a high level view that tracks the progress of integration work and promotion across the many levels environments"
       ],
-      "tags": ["Project Management", "Team Leadership", "Software Engineering"]
+      "tags": [
+        "Integration",
+        "Platform",
+        "Leadership",
+        "Project Management"
+      ]
     },
     {
       "company": "Travelers",
@@ -108,7 +135,12 @@
         "Created a domain specific language to describe the behaviors of forms that the teams created as part of day to day work.",
         "Explored pathways to improve the deployment story as the company wants to shift to cloud deployment."
       ],
-      "tags": ["Team Leadership", "Software Engineering"]
+      "tags": [
+        "DevEx",
+        "DSL",
+        "Angular",
+        "TypeScript"
+      ]
     },
     {
       "company": "Change Healthcare",
@@ -125,7 +157,13 @@
         "Implemented sanity checks and systems validity testing for release and deployments completed by automation.",
         "Pushed to drive the team to better coding standards with code review, pair-programming and brown-bag sessions."
       ],
-      "tags": ["Team Leadership", "Software Engineering"]
+      "tags": [
+        "Cloud",
+        "Containers",
+        "CI/CD",
+        "Automation",
+        "Leadership"
+      ]
     },
     {
       "company": "Change Healthcare",
@@ -140,7 +178,11 @@
         "Proposed and implemented improvements to the development, building and deployment of hotfix packages, streamlining the process from a complicated four-part configuration process into a single \"source of truth\" layout file.",
         "Worked as an intermediary between the production team and my old services team to create smoother product handoff with fewer breaking changes for process developed by services team."
       ],
-      "tags": ["Software Engineering"]
+      "tags": [
+        "Product Development",
+        "Integration",
+        "Delivery"
+      ]
     },
     {
       "company": "McKesson",
@@ -154,7 +196,12 @@
         "Oversaw design on several in-house, web-based software tools. In the process, reduced duplication efforts between tools by extracting core shared elements into a supporting McKesson-branded UX framework.",
         "Took charge of developer growth effort with regular \"brown bag\" sessions and knowledge transfer on different topics of interest."
       ],
-      "tags": ["Software Engineering"]
+      "tags": [
+        "DSL",
+        "Delivery",
+        "Automation",
+        "Leadership"
+      ]
     },
     {
       "company": "Korchek Technologies",
@@ -167,6 +214,11 @@
         "Worked on development of new products, including CareCheck 2 & 3 and Korchek Report System.",
         "Pioneering new web based product, Web Unit Archive, which leveraged client side data binding frameworks to provide a thick client user experience in a web browser.",
         "Involved in data conversion and automation scripts.  Creating conversion mappers for legacy binary data in efforts archive customer deprecated applications."
+      ],
+      "tags": [
+        ".NET",
+        "C#",
+        "Product Development"
       ]
     },
     {
@@ -180,6 +232,11 @@
         "Learned and worked with ColdFusion to maintain and extend the Cosential CMS application",
         "Creating PHP data sync connections for clients database systems in order to migrate them to our service",
         "Building custom websites for our clients from designer image files with HTML, CSS and JavaScript"
+      ],
+      "tags": [
+        "JavaScript",
+        "Web",
+        "PHP"
       ]
     },
     {
@@ -193,6 +250,11 @@
         "Introduction into .NET programming with ASP.NET Web Forms and VB.NET desktop applications",
         "Worked with the Compact Framework version of .NET to build out and deliver inventory tracking software for Windows Mobile 5",
         "Created inventory syncing storefront websites for clients of AJSLLC Edge users"
+      ],
+      "tags": [
+        ".NET",
+        "Mobile",
+        "VB.NET"
       ]
     }
   ],
@@ -227,7 +289,13 @@
     {
       "name": "dotnet",
       "level": "Senior",
-      "keywords": ["C#", "ASP.NET", "Orleans", "Blazor", "F# (beginner)"]
+      "keywords": [
+        "C#",
+        "ASP.NET",
+        "Orleans",
+        "Blazor",
+        "F# (beginner)"
+      ]
     },
     {
       "name": "Testing",
@@ -244,7 +312,13 @@
     {
       "name": "Cloud",
       "level": "Intermediate",
-      "keywords": ["AWS", "Azure", "Containers", "Octopus", "Terraform"]
+      "keywords": [
+        "AWS",
+        "Azure",
+        "Containers",
+        "Octopus",
+        "Terraform"
+      ]
     },
     {
       "name": "Build Tools",

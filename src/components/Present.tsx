@@ -1,21 +1,12 @@
 import { component$ } from "@builder.io/qwik";
-export interface TimeLineEntryProperties {
-  summary: string;
-  position: string;
-  startDate: string;
-  highlights: string[];
-  company: string;
-  website?: string;
-  copmanyLogo?: string;
-}
 
 export default component$(() => {
   return (
-    <article id="commit-message-suggestions" class="scroll-mt-16">
+    <article id="today" class="scroll-mt-16">
       <div>
         <header class="relative mb-2 xl:mb-0">
           <div class="pointer-events-none absolute top-0 left-[max(-0.5rem,calc(50%-18.625rem))] z-50 flex h-4 items-center justify-end gap-x-2 lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:left-0 lg:min-w-[32rem] xl:h-8">
-            <a class="inline-flex" href="#commit-message-suggestions">
+            <a class="inline-flex" href="#today">
               <time
                 data-datetime={new Date()}
                 class="xl:text-2xs/4 hidden xl:pointer-events-auto xl:block xl:font-medium xl:text-white/50"
@@ -29,7 +20,7 @@ export default component$(() => {
             <div class="lg:ml-96 lg:flex lg:w-full lg:justify-end lg:pl-32">
               <div class="mx-auto max-w-lg lg:mx-0 lg:w-0 lg:max-w-xl lg:flex-auto">
                 <div class="flex">
-                  <a class="inline-flex" href="#commit-message-suggestions">
+                  <a class="inline-flex" href="#today">
                     <time
                       data-datetime={new Date()}
                       class="text-2xs/4 font-medium text-gray-500 xl:hidden dark:text-white/50"

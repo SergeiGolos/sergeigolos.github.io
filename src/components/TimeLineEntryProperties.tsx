@@ -4,8 +4,10 @@ export interface TimeLineEntryProperties {
   type: string;
   name: string;
   startDate: string;
+  endDate?: string;
   highlights: string[];
   company: string;
   url?: string;
-  copmanyLogo?: string;
+  companyLogo?: string;
+  tags?: string[];
 }

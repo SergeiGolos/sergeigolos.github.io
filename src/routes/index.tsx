@@ -1,30 +1,54 @@
-import { component$, useSignal, $, useComputed$ } from "@builder.io/qwik";
+import {
+  component$,
+  useSignal,
+  $,
+  useComputed$,
+  useVisibleTask$,
+} from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import Page from "~/components/Page";
 import Present from "~/components/Present";
 import { timeline } from "~/components/resume";
-import CompactFilterBar from "~/components/CompactFilterBar";
+import TimelineToolbar from "~/components/TimelineToolbar";
 import {
   extractFilterData,
   getInitialFilterState,
   filterTimeline,
+  filtersFromSearchParams,
+  filtersToSearchParams,
   type FilterState,
 } from "~/components/filter-utils";
-import type { TimeLineEntryProperties } from "~/components/TimeLineEntryProperties";
 
 export default component$(() => {
-  const filteredTimeline = useSignal<TimeLineEntryProperties[]>(timeline);
   const filterData = extractFilterData(timeline);
   const filterState = useSignal<FilterState>(getInitialFilterState(timeline));
 
   const handleFilterChange = $((newFilters: FilterState) => {
     filterState.value = newFilters;
-    const filtered = filterTimeline(timeline, newFilters);
-    filteredTimeline.value = filtered;
+    // Keep the URL in sync so a filtered view can be copied and shared.
+    const query = filtersToSearchParams(newFilters, timeline);
+    window.history.replaceState(
+      null,
+      "",
+      `${window.location.pathname}${query}${window.location.hash}`,
+    );
+  });
+
+  const clearFilters = $(() => {
+    handleFilterChange(getInitialFilterState(timeline));
+  });
+
+  // On first view, pick up any filters encoded in the URL.
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(() => {
+    if (window.location.search) {
+      const fromUrl = filtersFromSearchParams(window.location.search, timeline);
+      filterState.value = fromUrl;
+    }
   });
 
   const sortedTimeline = useComputed$(() => {
-    return [...filteredTimeline.value].sort(function (a, b) {
+    return [...filterTimeline(timeline, filterState.value)].sort(function (a, b) {
       return a.startDate > b.startDate ? -1 : 1;
     });
   });
@@ -32,35 +56,39 @@ export default component$(() => {
   return (
     <>
       <Present />
-      <CompactFilterBar
+      <TimelineToolbar
         filterData={filterData}
         filterState={filterState.value}
+        timeline={timeline}
+        resultCount={sortedTimeline.value.length}
+        totalCount={timeline.length}
         onFilterChange={handleFilterChange}
+        onClearFilters={clearFilters}
       />
       {sortedTimeline.value.length > 0 ? (
         sortedTimeline.value.map((job, index) => (
           <Page {...job} key={`${job.startDate}-${job.name}-${index}`} />
         ))
       ) : (
-        <div class="py-12 text-center">
-          <div class="text-gray-500 dark:text-gray-400">
-            <svg
-              class="mx-auto mb-4 h-12 w-12"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6M7 16l-4-4m0 0l4-4m-4 4h18"
-              />
-            </svg>
-            <h3 class="mb-2 text-lg font-medium">No results found</h3>
-            <p class="text-sm">
-              Try adjusting your filters to see more results.
-            </p>
+        <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
+          <div class="lg:ml-96 lg:flex lg:w-full lg:justify-end lg:pl-32">
+            <div class="mx-auto max-w-lg py-12 text-center lg:mx-0 lg:w-0 lg:max-w-xl lg:flex-auto">
+              <div class="text-gray-500 dark:text-gray-400">
+                <h3 class="mb-2 text-lg font-medium text-gray-900 dark:text-white">
+                  No results found
+                </h3>
+                <p class="text-sm">
+                  Try adjusting your filters to see more results.
+                </p>
+                <button
+                  type="button"
+                  onClick$={clearFilters}
+                  class="mt-4 rounded-full bg-sky-600 px-4 py-1.5 text-sm text-white hover:bg-sky-500"
+                >
+                  Clear all filters
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}

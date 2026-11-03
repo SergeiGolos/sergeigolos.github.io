@@ -1,9 +1,8 @@
-import { component$, Slot, useStyles$ } from "@builder.io/qwik";
+import { component$, Slot } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import type { RequestHandler } from "@builder.io/qwik-city";
 import Profile from "~/components/profiles";
 import ThemeToggle from "~/components/light-dark-toggle";
-import styles from "./styles.css?inline";
 import Glow from "~/components/glow";
 import ResumeLink from "~/components/resume-link";
 import Timeline from "~/components/timeline";
@@ -27,7 +26,6 @@ export const useServerTimeLoader = routeLoader$(() => {
 });
 
 export default component$(() => {
-  useStyles$(styles);
   return (
     <>
       <main class="flex min-h-full flex-col bg-white dark:bg-gray-950">
@@ -49,8 +47,10 @@ export default component$(() => {
             </div>
           </div>
         </div>
-        <ThemeToggle />
-        <ResumeLink href="sergei-golos-resume.pdf" />
+        <div class="fixed top-4 right-4 z-50 flex items-center gap-1">
+          <ResumeLink href="sergei-golos-resume.pdf" />
+          <ThemeToggle />
+        </div>
         <div class="relative flex-auto overflow-visible">
           <Timeline />
           <main class="space-y-2 py-8 sm:space-y-2 sm:py-8 lg:py-20">
