@@ -91,7 +91,21 @@ const styleOverrides = `
   }
 `;
 
-const html = inlineProfileImage(inlineIconImages(theme.render(resume)));
+// The theme follows the current JSON Resume schema, where a work entry's
+// company is `name` and its link is `url`. resume.json still uses the legacy
+// `company` / `website` fields (which the site reads), so the theme printed
+// an empty company line — the PDF showed positions with no companies. Feed
+// the theme a normalized copy; resume.json itself is untouched.
+const themeResume = {
+  ...resume,
+  work: (resume.work ?? []).map((job) => ({
+    ...job,
+    name: job.name ?? job.company,
+    url: job.url ?? job.website,
+  })),
+};
+
+const html = inlineProfileImage(inlineIconImages(theme.render(themeResume)));
 
 const browser = await puppeteer.launch({
   args: ["--no-sandbox", "--disable-setuid-sandbox"],
