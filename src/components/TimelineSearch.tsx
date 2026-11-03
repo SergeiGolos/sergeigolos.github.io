@@ -131,6 +131,17 @@ export default component$<TimelineSearchProps>(
         : []),
     ];
 
+    // Right padding for the input, sized to the in-box controls that
+    // are currently showing (clear-text ×, Clear, filter count).
+    const inputPad =
+      activeFilters.length > 0
+        ? filterState.searchText
+          ? "pr-[7rem]"
+          : "pr-24"
+        : filterState.searchText
+          ? "pr-9"
+          : "pr-3";
+
     const closeMenus = $(() => {
       suggestionsOpen.value = false;
       typeOpen.value = false;
@@ -227,7 +238,7 @@ export default component$<TimelineSearchProps>(
 
     return (
       <div
-        class="fixed top-4 right-[7.5rem] left-4 z-40 sm:left-auto"
+        class="fixed top-4 right-[4.5rem] left-4 z-40 sm:left-auto"
         onFocusOut$={handleFocusOut}
       >
         <div class="flex w-full items-center gap-1.5 sm:w-auto sm:gap-2">
@@ -258,7 +269,7 @@ export default component$<TimelineSearchProps>(
               <ul
                 role="listbox"
                 aria-label="Entry type"
-                class={`${menuCls} right-0 w-40 py-1.5`}
+                class="fixed inset-x-4 top-16 overflow-hidden rounded-xl bg-white py-1.5 shadow-lg ring-1 ring-gray-900/10 sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-2 sm:w-40 dark:bg-gray-900 dark:ring-white/10"
               >
                 {TYPE_OPTIONS.map((option) => {
                   const selected = currentType === option.value;
@@ -315,21 +326,8 @@ export default component$<TimelineSearchProps>(
               aria-label="Search the timeline"
               aria-expanded={suggestionsOpen.value && query.length > 0}
               aria-controls="timeline-suggestions"
-              class={`h-10 w-full rounded-lg pr-8 pl-9 text-sm text-gray-900 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-sky-500 dark:text-white dark:placeholder:text-gray-500 [&::-webkit-search-cancel-button]:hidden ${pillCls}`}
+              class={`h-10 w-full rounded-lg ${inputPad} pl-9 text-sm text-gray-900 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-sky-500 dark:text-white dark:placeholder:text-gray-500 [&::-webkit-search-cancel-button]:hidden ${pillCls}`}
             />
-            {filterState.searchText && (
-              <button
-                type="button"
-                aria-label="Clear search text"
-                class="absolute top-1/2 right-2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-                onClick$={() => {
-                  onFilterChange({ ...filterState, searchText: "" });
-                  document.getElementById("timeline-search")?.focus();
-                }}
-              >
-                <FaXmarkSolid class="h-3.5 w-3.5" />
-              </button>
-            )}
             {suggestionsOpen.value && query.length > 0 && (
               <div id="timeline-suggestions" class={`${menuCls} right-0 left-0`}>
                 {suggestions.value.length === 0 ? (
@@ -378,42 +376,55 @@ export default component$<TimelineSearchProps>(
                 )}
               </div>
             )}
-          </div>
-
-          {/* Clear + active-filter count, in the same row. The popover
-              lists every active filter with its own remove button, so
-              nothing ever renders underneath the search row. */}
-          {activeFilters.length > 0 && (
-            <>
-              <button
-                type="button"
-                onClick$={onClearFilters}
-                class={`h-10 shrink-0 rounded-lg px-2 text-sm font-medium text-sky-700 hover:text-sky-900 sm:px-3 dark:text-sky-300 dark:hover:text-sky-200 ${pillCls}`}
-              >
-                Clear
-              </button>
-              <div class="relative shrink-0">
-                <button
-                  type="button"
-                  class={`flex h-10 items-center gap-1.5 rounded-lg px-2 text-sm font-medium text-gray-700 sm:px-2.5 dark:text-gray-200 ${pillCls}`}
-                  aria-haspopup="dialog"
-                  aria-expanded={filtersOpen.value}
-                  aria-label={`${activeFilters.length} active filters`}
-                  onClick$={() => {
-                    filtersOpen.value = !filtersOpen.value;
-                    suggestionsOpen.value = false;
-                    typeOpen.value = false;
-                  }}
-                >
-                  {activeFilters.length}
-                  <FaChevronDownSolid class="h-2.5 w-2.5 opacity-60" />
-                </button>
-                {filtersOpen.value && (
-                  <div
-                    role="dialog"
-                    aria-label="Active filters"
-                    class="fixed top-16 right-4 w-72 max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/10 sm:absolute sm:top-full sm:right-0 sm:mt-2 sm:w-72 dark:bg-gray-900 dark:ring-white/10"
+            {/* In-box controls on the input's right edge: clear-text,
+                Clear (all filters), and the active-filter count whose
+                popover lists every filter with its own remove button. */}
+            {(filterState.searchText || activeFilters.length > 0) && (
+              <div class="absolute inset-y-0 right-1.5 flex items-center gap-1">
+                {filterState.searchText && (
+                  <button
+                    type="button"
+                    aria-label="Clear search text"
+                    class="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                    onClick$={() => {
+                      onFilterChange({ ...filterState, searchText: "" });
+                      document.getElementById("timeline-search")?.focus();
+                    }}
                   >
+                    <FaXmarkSolid class="h-3.5 w-3.5" />
+                  </button>
+                )}
+                {activeFilters.length > 0 && (
+                  <>
+                    <button
+                      type="button"
+                      onClick$={onClearFilters}
+                      class="rounded-md px-1.5 py-1 text-xs font-medium text-sky-700 hover:bg-sky-50 dark:text-sky-300 dark:hover:bg-sky-500/10"
+                    >
+                      Clear
+                    </button>
+                    <div class="relative">
+                      <button
+                        type="button"
+                        class="flex items-center gap-0.5 rounded-full bg-sky-600 px-2 py-0.5 text-xs font-semibold text-white dark:bg-sky-500"
+                        aria-haspopup="dialog"
+                        aria-expanded={filtersOpen.value}
+                        aria-label={`${activeFilters.length} active filters`}
+                        onClick$={() => {
+                          filtersOpen.value = !filtersOpen.value;
+                          suggestionsOpen.value = false;
+                          typeOpen.value = false;
+                        }}
+                      >
+                        {activeFilters.length}
+                        <FaChevronDownSolid class="h-2 w-2 opacity-80" />
+                      </button>
+                      {filtersOpen.value && (
+                        <div
+                          role="dialog"
+                          aria-label="Active filters"
+                          class="fixed top-16 right-4 w-72 max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/10 sm:absolute sm:top-full sm:right-0 sm:mt-3 sm:w-72 dark:bg-gray-900 dark:ring-white/10"
+                        >
                     <div class="flex items-center justify-between border-b border-gray-100 px-3 py-2.5 dark:border-white/10">
                       <p class="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
                         Active filters
@@ -467,6 +478,9 @@ export default component$<TimelineSearchProps>(
               </div>
             </>
           )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     );

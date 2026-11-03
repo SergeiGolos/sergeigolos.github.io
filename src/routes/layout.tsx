@@ -4,7 +4,6 @@ import type { RequestHandler } from "@builder.io/qwik-city";
 import Profile from "~/components/profiles";
 import ThemeToggle from "~/components/light-dark-toggle";
 import Glow from "~/components/glow";
-import ResumeLink from "~/components/resume-link";
 import Timeline from "~/components/timeline";
 import ProfileIntro from "~/components/profile-intro";
 
@@ -48,7 +47,6 @@ export default component$(() => {
           </div>
         </div>
         <div class="fixed top-4 right-4 z-50 flex items-center gap-1">
-          <ResumeLink href="sergei-golos-resume.pdf" />
           <ThemeToggle />
         </div>
         <div class="relative flex-auto overflow-visible">

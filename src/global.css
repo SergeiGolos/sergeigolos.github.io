@@ -120,3 +120,16 @@ body {
   padding: 0;
   line-height: inherit;
 }
+
+/**
+ * The page canvas follows the theme. Without this, short pages (e.g. a
+ * filter combination with no results) leave the area below <main>
+ * showing the browser's default white in dark mode.
+ */
+html {
+  background-color: #ffffff;
+}
+
+html.dark {
+  background-color: #030712; /* gray-950, matches <main> */
+}
