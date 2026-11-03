@@ -9,9 +9,12 @@ export default component$((props: TimeLineEntryProperties) => {
     year: "numeric",
   });
   const dateString = formatter.format(date);
+  const slug = `${props.company}-${props.startDate}`
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-");
 
   return (
-    <article id="commit-message-suggestions" class="">
+    <article id={slug} class="">
       <div>
         <div class="dark:text-white-500 mx-auto max-w-7xl px-6 text-gray-500 lg:flex lg:px-8">
           <div class="lg:ml-96 lg:flex lg:w-full lg:justify-end lg:pl-32">
@@ -19,10 +22,7 @@ export default component$((props: TimeLineEntryProperties) => {
               class="pointer-events-auto mx-auto max-w-lg leading-8 lg:mx-0 lg:w-0 lg:max-w-xl lg:flex-auto"
               data-mdx-content="true"
             >
-              <div class="[&amp;+*]:mt-8 relative mt-8 overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-900">
-                <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-gray-900/10 ring-inset dark:ring-white/10"></div>
-              </div>
-              <h3 class="lg:gap-1e flex gap-1 text-xl text-blue-400">
+              <h3 class="mt-8 flex gap-1 text-xl text-blue-400">
                 <span>{props.name}</span>
                 <span>@</span>
                 <Link target="blank" href={props.url}>
@@ -35,6 +35,18 @@ export default component$((props: TimeLineEntryProperties) => {
                   <li key={index}>{item}</li>
                 ))}
               </ul>
+              {props.tags && props.tags.length > 0 && (
+                <div class="mt-3 flex flex-wrap gap-1.5">
+                  {props.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      class="rounded-full px-2 py-0.5 text-[0.65rem] text-gray-500 ring-1 ring-gray-900/10 dark:text-white/50 dark:ring-white/10"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -7,6 +7,40 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /**
+ * Poppins — the display face used by the profile intro (font-display).
+ * The woff2 files ship in public/fonts; load them here so the class works.
+ */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/poppins-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-display {
+  font-family:
+    "Poppins",
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+}
+
+/**
  * WHAT IS THIS FILE?
  *
  * Globally applied styles. No matter which components are in the page or matching route,
