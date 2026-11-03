@@ -10,6 +10,7 @@ import {
   FaBoltSolid,
   FaBriefcaseSolid,
   FaBuildingSolid,
+  FaCalendarSolid,
   FaCheckSolid,
   FaChevronDownSolid,
   FaDiagramProjectSolid,
@@ -31,6 +32,13 @@ type SuggestionKind = "company" | "skill";
 interface Suggestion {
   kind: SuggestionKind;
   value: string;
+}
+
+type ActiveFilterKind = "company" | "skill" | "type" | "years";
+interface ActiveFilter {
+  kind: ActiveFilterKind;
+  value: string;
+  label: string;
 }
 
 const TYPE_OPTIONS: { value: string | null; label: string }[] = [
@@ -55,6 +63,7 @@ export default component$<TimelineSearchProps>(
   }) => {
     const suggestionsOpen = useSignal(false);
     const typeOpen = useSignal(false);
+    const filtersOpen = useSignal(false);
     const activeIndex = useSignal(-1);
 
     const query = filterState.searchText.trim().toLowerCase();
@@ -86,24 +95,46 @@ export default component$<TimelineSearchProps>(
     const currentType =
       filterState.types.length === 1 ? filterState.types[0] : null;
 
-    const isFiltered =
-      filterState.types.length > 0 ||
-      filterState.companies.length > 0 ||
-      filterState.technologies.length > 0 ||
-      filterState.searchText !== "";
+    const minYear = Math.min(...filterData.years);
+    const maxYear = Math.max(...filterData.years);
+    const yearsActive =
+      filterState.yearRange[0] !== minYear ||
+      filterState.yearRange[1] !== maxYear;
 
-    const chips: Suggestion[] = [
+    // Everything currently filtering the timeline, as one flat list.
+    // The count badge and the popover both read from this list, so the
+    // number always matches the rows that can be removed inside.
+    const activeFilters: ActiveFilter[] = [
       ...filterState.companies.map(
-        (value): Suggestion => ({ kind: "company", value }),
+        (value): ActiveFilter => ({ kind: "company", value, label: value }),
       ),
       ...filterState.technologies.map(
-        (value): Suggestion => ({ kind: "skill", value }),
+        (value): ActiveFilter => ({ kind: "skill", value, label: value }),
       ),
+      ...(currentType !== null
+        ? [
+            {
+              kind: "type",
+              value: currentType,
+              label: currentType === "work" ? "Work" : "Projects",
+            } as ActiveFilter,
+          ]
+        : []),
+      ...(yearsActive
+        ? [
+            {
+              kind: "years",
+              value: "years",
+              label: `${filterState.yearRange[0]} – ${filterState.yearRange[1]}`,
+            } as ActiveFilter,
+          ]
+        : []),
     ];
 
     const closeMenus = $(() => {
       suggestionsOpen.value = false;
       typeOpen.value = false;
+      filtersOpen.value = false;
       activeIndex.value = -1;
     });
 
@@ -139,18 +170,25 @@ export default component$<TimelineSearchProps>(
       document.getElementById("timeline-search")?.focus();
     });
 
-    const removeChip = $((chip: Suggestion) => {
-      if (chip.kind === "company") {
+    const removeFilter = $((filter: ActiveFilter) => {
+      if (filter.kind === "company") {
         onFilterChange({
           ...filterState,
-          companies: filterState.companies.filter((c) => c !== chip.value),
+          companies: filterState.companies.filter((c) => c !== filter.value),
         });
-      } else {
+      } else if (filter.kind === "skill") {
         onFilterChange({
           ...filterState,
           technologies: filterState.technologies.filter(
-            (t) => t !== chip.value,
+            (t) => t !== filter.value,
           ),
+        });
+      } else if (filter.kind === "type") {
+        onFilterChange({ ...filterState, types: [] });
+      } else {
+        onFilterChange({
+          ...filterState,
+          yearRange: [minYear, maxYear],
         });
       }
     });
@@ -189,10 +227,10 @@ export default component$<TimelineSearchProps>(
 
     return (
       <div
-        class="fixed top-4 right-[7.5rem] left-4 z-40 flex flex-col items-end gap-2 sm:left-auto"
+        class="fixed top-4 right-[7.5rem] left-4 z-40 sm:left-auto"
         onFocusOut$={handleFocusOut}
       >
-        <div class="flex w-full items-center gap-2 sm:w-auto">
+        <div class="flex w-full items-center gap-1.5 sm:w-auto sm:gap-2">
           {/* Type dropdown: * = All, briefcase = Work, diagram = Projects */}
           <div class="relative shrink-0">
             <button
@@ -204,6 +242,7 @@ export default component$<TimelineSearchProps>(
               onClick$={() => {
                 typeOpen.value = !typeOpen.value;
                 suggestionsOpen.value = false;
+                filtersOpen.value = false;
               }}
             >
               {currentType === "work" ? (
@@ -264,10 +303,12 @@ export default component$<TimelineSearchProps>(
               onFocus$={() => {
                 suggestionsOpen.value = true;
                 typeOpen.value = false;
+                filtersOpen.value = false;
               }}
               onClick$={() => {
                 suggestionsOpen.value = true;
                 typeOpen.value = false;
+                filtersOpen.value = false;
               }}
               onKeyDown$={handleKeyDown}
               placeholder="Search or pick a company / skill…"
@@ -338,44 +379,95 @@ export default component$<TimelineSearchProps>(
               </div>
             )}
           </div>
-        </div>
 
-        {/* Active selections */}
-        {isFiltered && (
-          <div class="flex max-w-full flex-wrap items-center justify-end gap-1.5">
-            <span class="text-xs text-gray-500 dark:text-white/50" role="status">
-              {resultCount} of {totalCount}
-            </span>
-            {chips.map((chip) => (
-              <span
-                key={`${chip.kind}-${chip.value}`}
-                class="flex items-center gap-1.5 rounded-full bg-sky-600 py-1 pr-1.5 pl-2.5 text-xs whitespace-nowrap text-white dark:bg-sky-500"
+          {/* Clear + active-filter count, in the same row. The popover
+              lists every active filter with its own remove button, so
+              nothing ever renders underneath the search row. */}
+          {activeFilters.length > 0 && (
+            <>
+              <button
+                type="button"
+                onClick$={onClearFilters}
+                class={`h-10 shrink-0 rounded-lg px-2 text-sm font-medium text-sky-700 hover:text-sky-900 sm:px-3 dark:text-sky-300 dark:hover:text-sky-200 ${pillCls}`}
               >
-                {chip.kind === "company" ? (
-                  <FaBuildingSolid class="h-3 w-3" />
-                ) : (
-                  <FaBoltSolid class="h-3 w-3" />
-                )}
-                {chip.value}
+                Clear
+              </button>
+              <div class="relative shrink-0">
                 <button
                   type="button"
-                  aria-label={`Remove ${chip.value} filter`}
-                  class="p-0.5 hover:text-sky-200"
-                  onClick$={() => removeChip(chip)}
+                  class={`flex h-10 items-center gap-1.5 rounded-lg px-2 text-sm font-medium text-gray-700 sm:px-2.5 dark:text-gray-200 ${pillCls}`}
+                  aria-haspopup="dialog"
+                  aria-expanded={filtersOpen.value}
+                  aria-label={`${activeFilters.length} active filters`}
+                  onClick$={() => {
+                    filtersOpen.value = !filtersOpen.value;
+                    suggestionsOpen.value = false;
+                    typeOpen.value = false;
+                  }}
                 >
-                  <FaXmarkSolid class="h-3 w-3" />
+                  {activeFilters.length}
+                  <FaChevronDownSolid class="h-2.5 w-2.5 opacity-60" />
                 </button>
-              </span>
-            ))}
-            <button
-              type="button"
-              onClick$={onClearFilters}
-              class="rounded-full bg-white/95 px-2.5 py-1 text-xs font-medium text-sky-700 ring-1 ring-gray-900/10 hover:text-sky-900 dark:bg-gray-900/95 dark:text-sky-300 dark:ring-white/15 dark:hover:text-sky-200"
-            >
-              Clear all
-            </button>
-          </div>
-        )}
+                {filtersOpen.value && (
+                  <div
+                    role="dialog"
+                    aria-label="Active filters"
+                    class="fixed top-16 right-4 w-72 max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/10 sm:absolute sm:top-full sm:right-0 sm:mt-2 sm:w-72 dark:bg-gray-900 dark:ring-white/10"
+                  >
+                    <div class="flex items-center justify-between border-b border-gray-100 px-3 py-2.5 dark:border-white/10">
+                      <p class="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
+                        Active filters
+                      </p>
+                      <p class="text-xs text-gray-400" role="status">
+                        {resultCount} of {totalCount} entries
+                      </p>
+                    </div>
+                    <ul class="max-h-80 overflow-y-auto py-1.5">
+                      {activeFilters.map((filter) => (
+                        <li
+                          key={`${filter.kind}-${filter.value}`}
+                          class="flex items-center gap-2.5 px-3 py-1.5 text-sm text-gray-700 dark:text-gray-200"
+                        >
+                          {filter.kind === "company" ? (
+                            <FaBuildingSolid class="h-3.5 w-3.5 shrink-0 text-gray-400" />
+                          ) : filter.kind === "skill" ? (
+                            <FaBoltSolid class="h-3.5 w-3.5 shrink-0 text-gray-400" />
+                          ) : filter.kind === "type" ? (
+                            filter.value === "work" ? (
+                              <FaBriefcaseSolid class="h-3.5 w-3.5 shrink-0 text-gray-400" />
+                            ) : (
+                              <FaDiagramProjectSolid class="h-3.5 w-3.5 shrink-0 text-gray-400" />
+                            )
+                          ) : (
+                            <FaCalendarSolid class="h-3.5 w-3.5 shrink-0 text-gray-400" />
+                          )}
+                          <span class="flex-1 truncate">{filter.label}</span>
+                          <span class="text-[0.65rem] font-medium tracking-wide text-gray-400 uppercase dark:text-gray-500">
+                            {filter.kind === "company"
+                              ? "Company"
+                              : filter.kind === "skill"
+                                ? "Skill"
+                                : filter.kind === "type"
+                                  ? "Type"
+                                  : "Years"}
+                          </span>
+                          <button
+                            type="button"
+                            aria-label={`Remove ${filter.label} filter`}
+                            class="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                            onClick$={() => removeFilter(filter)}
+                          >
+                            <FaXmarkSolid class="h-3.5 w-3.5" />
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+        </div>
       </div>
     );
   },
