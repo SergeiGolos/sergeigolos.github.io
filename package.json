@@ -1,6 +1,6 @@
 {
   "name": "sergeigolos.github.io",
-  "description": "Sergei Golos \u2014 personal timeline/resume site (Qwik + JSON Resume)",
+  "description": "Sergei Golos — personal timeline/resume site (Qwik + JSON Resume)",
   "engines": {
     "node": ">=22"
   },
@@ -54,5 +54,9 @@
   },
   "dependencies": {
     "@qwikest/icons": "^0.0.13"
+  },
+  "overrides": {
+    "sharp": "^0.35.5",
+    "minimatch": "^11.0.4"
   }
 }
