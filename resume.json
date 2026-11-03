@@ -36,18 +36,19 @@
   },
   "projects": [
     {
-      "name": "Open Source: Timers Ninja",
+      "name": "Open Source: WOD Wiki",
       "startDate": "2024-03-15",
-      "description": "Markdown language for generating workout timers from plain text inspired the mermaid markdown language.  Used for home workouts, the project was a deeper exploration of building domain specific languages with lexical parsing.",
+      "description": "Write workouts in plain markdown and run them: the same document either logs metrics directly or becomes a timer that captures them as you train, with queries and dashboards over the results. The project started out as Timers Ninja, a markdown language for generating workout timers, and has since grown into WOD Wiki (wod.wiki) — an editor, a runtime, and analytics for workout programming.",
       "highlights": [
-        "Deep dive into the inner working of language construction.  The project breaks down markdown strings into tokens, creates a syntax tree with parser and walks the tree with language interpreter to generate a collection of timers.",
-        "Chrome-cast enabled controls for timers, allowing old TVs become low cost barrier to entry for a configurable home workout timer."
+        "Designed the authoring language and its engine: markdown is tokenized, parsed into a syntax tree, and interpreted by a runtime that turns statements into timers and the timers into metrics — the direct continuation of the Timers Ninja engine.",
+        "Built a query language with dashboards over the collected metrics, so a workout log becomes data that can be analyzed instead of a dead record.",
+        "Distributed by design: notebooks can be published on GitHub for others to subscribe to, while the data itself stays in the browser or a self-hosted database."
       ],
-      "url": "https://github.com/bitcobblers/timers-ninja",
+      "url": "https://github.com/bitcobblers/wod-wiki",
       "tags": [
         "DSL",
         "TypeScript",
-        "React",
+        "Analytics",
         "Open Source"
       ]
     },
@@ -91,15 +92,19 @@
       "position": "Staff Software Engineer",
       "website": "https://www.lyric.ai/",
       "startDate": "2024-04-08",
-      "summary": "Speared-heading the migration to the cloud of the existing 'Content Manager' product with a focus on performance, scalability, reliability, and cost-effectiveness.",
+      "summary": "Spearheading the migration to the cloud of the existing 'Content Manager' product with a focus on performance, scalability, reliability, and cost-effectiveness, while modernizing the legacy platform it replaces.",
       "highlights": [
-        "A 90-day learning plan for hitting the ground running with a focus relationship and consensus building. ",
-        "Proactively seek out knowledge and training resources to enhance my understanding of business problems facing the company.",
-        "Create a collaborative team environment that encourages members to thrive and to learn and grow together."
+        "Developed synchronization between the legacy and new software so both systems stay consistent while the migration is in progress.",
+        "Upgraded a large legacy application from .NET Framework to .NET 10, improving its performance and security posture.",
+        "Developed sideloaded applications that extend the platform alongside the core product.",
+        "Drove the team's AI strategy: Copilot integration, agent development with MCP, and the practices around using them day to day.",
+        "Mentor engineers on the team and help raise the bar on how the team designs and delivers software."
       ],
       "tags": [
         "Cloud",
         "Migration",
+        ".NET",
+        "AI",
         "Platform",
         "Leadership"
       ]
