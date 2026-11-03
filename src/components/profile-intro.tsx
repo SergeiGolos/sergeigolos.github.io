@@ -19,7 +19,7 @@ export default component$(() => {
           rel="noreferrer"
           title="Download résumé (PDF)"
           aria-label="Download résumé (PDF)"
-          class="absolute right-3 bottom-3 flex h-11 w-11 items-center justify-center rounded-full bg-sky-600 text-white shadow-lg ring-2 ring-white/25 transition hover:bg-sky-500"
+          class="pointer-events-auto absolute right-3 bottom-3 flex h-11 w-11 items-center justify-center rounded-full bg-sky-600 text-white shadow-lg ring-2 ring-white/25 transition hover:bg-sky-500"
         >
           <FaFileArrowDownSolid class="h-5 w-5" />
         </a>
